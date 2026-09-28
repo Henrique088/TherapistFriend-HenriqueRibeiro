@@ -1,0 +1,545 @@
+:global(:root) {
+    --tf-bg: #faf9f5;
+    --tf-card: #ffffff;
+
+    --tf-primary: #4f7f78;
+    --tf-primary-dark: #315d57;
+    --tf-primary-light: #e8f3ef;
+
+    --tf-text: #243331;
+    --tf-text-soft: #6c7b78;
+
+    --tf-border: #e1e8e5;
+
+    --tf-warning: #9a7040;
+    --tf-warning-light: #f7f0e5;
+
+    --tf-danger: #a65d58;
+    --tf-danger-light: #f7eae8;
+
+    --tf-shadow:
+        0 20px 55px rgba(36, 51, 49, 0.16);
+}
+
+
+/* ========================================
+   OVERLAY
+======================================== */
+
+.overlayCancelamento {
+    position: fixed;
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(36, 51, 49, 0.46);
+
+    backdrop-filter: blur(5px);
+}
+
+
+/* ========================================
+   MODAL
+======================================== */
+
+.modalCancelamento {
+    position: relative;
+
+    width: min(100%, 500px);
+    max-height: calc(100vh - 40px);
+
+    overflow-y: auto;
+
+    padding: 28px;
+
+    box-sizing: border-box;
+
+    background: var(--tf-card);
+
+    border: 1px solid var(--tf-border);
+    border-radius: 23px;
+
+    outline: none;
+
+    box-shadow: var(--tf-shadow);
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.header {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding-bottom: 21px;
+
+    border-bottom: 1px solid var(--tf-border);
+}
+
+.headerIcon {
+    width: 43px;
+    height: 43px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.headerIconWarning {
+    background: var(--tf-warning-light);
+
+    color: var(--tf-warning);
+}
+
+.headerIconBlocked {
+    background: var(--tf-danger-light);
+
+    color: var(--tf-danger);
+}
+
+.headerContent {
+    flex: 1;
+}
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--tf-primary);
+
+    font-size: 0.68rem;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+}
+
+.header h2 {
+    margin: 0;
+
+    color: var(--tf-text);
+
+    font-family: Georgia, 'Times New Roman', serif;
+
+    font-size: 1.55rem;
+    line-height: 1.2;
+}
+
+.closeButton {
+    width: 35px;
+    height: 35px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--tf-border);
+    border-radius: 9px;
+
+    background: #fff;
+
+    color: var(--tf-text-soft);
+
+    font-size: 1.3rem;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.closeButton:hover {
+    background: var(--tf-primary-light);
+
+    border-color: #cbded9;
+
+    color: var(--tf-primary-dark);
+}
+
+
+/* ========================================
+   CONTENT
+======================================== */
+
+.content {
+    padding-top: 22px;
+}
+
+.description {
+    margin: 0 0 18px;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+
+/* ========================================
+   AGENDAMENTO
+======================================== */
+
+.agendamentoInfo {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    overflow: hidden;
+
+    margin-bottom: 19px;
+
+    border: 1px solid var(--tf-border);
+    border-radius: 13px;
+
+    background: #f8faf9;
+}
+
+.infoRow {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    padding: 13px;
+
+    border-right: 1px solid var(--tf-border);
+}
+
+.infoRow:last-child {
+    border-right: none;
+}
+
+.infoRow > span:first-child {
+    color: var(--tf-text-soft);
+
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.infoRow strong {
+    color: var(--tf-text);
+
+    font-size: 0.83rem;
+}
+
+.status {
+    width: fit-content;
+
+    padding: 3px 7px;
+
+    border-radius: 6px;
+
+    background: var(--tf-primary-light);
+
+    color: var(--tf-primary-dark) !important;
+
+    font-size: 0.68rem !important;
+    font-weight: 700;
+}
+
+
+/* ========================================
+   ALERTAS
+======================================== */
+
+.alertaPermitido,
+.alertaErro {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 11px;
+
+    padding: 13px;
+
+    border-radius: 12px;
+
+    margin-bottom: 17px;
+}
+
+.alertaPermitido {
+    border: 1px solid #d5e6e1;
+
+    background: var(--tf-primary-light);
+}
+
+.alertaErro {
+    border: 1px solid #ead3d0;
+
+    background: var(--tf-danger-light);
+}
+
+.alertaIcon {
+    width: 25px;
+    height: 25px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.alertaPermitido .alertaIcon {
+    color: var(--tf-primary);
+}
+
+.alertaErro .alertaIcon {
+    color: var(--tf-danger);
+}
+
+.alertaPermitido strong,
+.alertaErro strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 0.8rem;
+}
+
+.alertaPermitido strong {
+    color: var(--tf-primary-dark);
+}
+
+.alertaErro strong {
+    color: var(--tf-danger);
+}
+
+.alertaPermitido p,
+.alertaErro p {
+    margin: 0;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+
+/* ========================================
+   CONFIRMAÇÃO
+======================================== */
+
+.confirmacao {
+    margin: 0 0 17px;
+
+    color: var(--tf-text);
+
+    font-size: 0.86rem;
+    font-weight: 600;
+}
+
+
+/* ========================================
+   LIMITE
+======================================== */
+
+.limite {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 12px 13px;
+
+    margin-bottom: 18px;
+
+    border-radius: 10px;
+
+    background: #f7f8f7;
+}
+
+.limite span {
+    color: var(--tf-text-soft);
+
+    font-size: 0.75rem;
+}
+
+.limite strong {
+    color: var(--tf-text);
+
+    font-size: 0.76rem;
+}
+
+
+/* ========================================
+   BOTÕES
+======================================== */
+
+.botoesModal {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 9px;
+
+    padding-top: 2px;
+}
+
+.botoesModal button {
+    min-height: 43px;
+
+    padding: 0 17px;
+
+    border-radius: 10px;
+
+    font-family: inherit;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.botoesModal button:hover {
+    transform: translateY(-1px);
+}
+
+
+/* Manter / Fechar */
+
+.botaoFechar {
+    border: 1px solid var(--tf-border);
+
+    background: #fff;
+
+    color: var(--tf-text-soft);
+}
+
+.botaoFechar:hover {
+    background: #f5f7f6;
+
+    color: var(--tf-text);
+}
+
+
+/* Cancelar */
+
+.botaoCancelar {
+    border: 1px solid var(--tf-danger);
+
+    background: var(--tf-danger);
+
+    color: #fff;
+
+    box-shadow:
+        0 5px 13px rgba(166, 93, 88, 0.15);
+}
+
+.botaoCancelar:hover {
+    background: #8f4f4b;
+
+    border-color: #8f4f4b;
+}
+
+
+/* ========================================
+   RESPONSIVO
+======================================== */
+
+@media (max-width: 560px) {
+    .overlayCancelamento {
+        padding: 12px;
+    }
+
+    .modalCancelamento {
+        width: 100%;
+
+        max-height: calc(100vh - 24px);
+
+        padding: 22px 18px;
+
+        border-radius: 20px;
+    }
+
+    .header h2 {
+        font-size: 1.4rem;
+    }
+
+    .agendamentoInfo {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .infoRow:nth-child(2) {
+        border-right: none;
+    }
+
+    .infoRow:nth-child(3) {
+        grid-column: span 2;
+
+        border-top: 1px solid var(--tf-border);
+        border-right: none;
+    }
+
+    .limite {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 4px;
+    }
+
+    .botoesModal {
+        flex-direction: column-reverse;
+    }
+
+    .botoesModal button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 380px) {
+    .modalCancelamento {
+        padding: 20px 15px;
+    }
+
+    .agendamentoInfo {
+        grid-template-columns: 1fr;
+    }
+
+    .infoRow,
+    .infoRow:nth-child(2),
+    .infoRow:nth-child(3) {
+        grid-column: auto;
+
+        border-right: none;
+        border-top: 1px solid var(--tf-border);
+    }
+
+    .infoRow:first-child {
+        border-top: none;
+    }
+}

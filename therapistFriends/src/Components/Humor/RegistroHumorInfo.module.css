@@ -1,0 +1,644 @@
+/* ============================================================
+   OVERLAY
+============================================================ */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 3000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    background: rgba(36, 51, 49, 0.48);
+
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+
+    animation: overlayAppear 0.2s ease;
+}
+
+
+/* ============================================================
+   MODAL
+============================================================ */
+
+.modal {
+    position: relative;
+
+    width: min(100%, 570px);
+
+    max-height:
+        min(
+            720px,
+            calc(100dvh - 48px)
+        );
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: #faf9f5;
+
+    border:
+        1px solid
+        #e1e8e5;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 24px 70px
+        rgba(36, 51, 49, 0.20),
+        0 6px 20px
+        rgba(36, 51, 49, 0.08);
+
+    animation:
+        modalAppear 0.25s ease;
+}
+
+
+/* ============================================================
+   CABEÇALHO
+============================================================ */
+
+.modalHeader {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 13px;
+
+    padding:
+        24px
+        24px
+        20px;
+
+    background: #ffffff;
+
+    border-bottom:
+        1px solid
+        #e5ebe8;
+}
+
+.headerIcon {
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background:
+        #e8f3ef;
+
+    color:
+        #315d57;
+}
+
+.headerText {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color:
+        #4f7f78;
+
+    font-size:
+        0.67rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.14em;
+
+    line-height: 1;
+
+    text-transform:
+        uppercase;
+}
+
+.headerText h2 {
+    margin: 0;
+
+    color:
+        #243331;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        1.35rem;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.25;
+}
+
+
+/* ============================================================
+   BOTÃO FECHAR
+============================================================ */
+
+.closeButton {
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border:
+        1px solid
+        #e1e8e5;
+
+    border-radius: 10px;
+
+    background:
+        #fafcfc;
+
+    color:
+        #6c7b78;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.18s ease,
+        color 0.18s ease,
+        border-color 0.18s ease;
+}
+
+.closeButton:hover {
+    background:
+        #e8f3ef;
+
+    color:
+        #315d57;
+
+    border-color:
+        #d5e7e2;
+}
+
+
+/* ============================================================
+   CONTEÚDO
+============================================================ */
+
+.content {
+    padding:
+        22px 24px;
+
+    overflow-y: auto;
+
+    scrollbar-width:
+        thin;
+
+    scrollbar-color:
+        #b8c4c1
+        transparent;
+}
+
+.content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.content::-webkit-scrollbar-track {
+    background:
+        transparent;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background:
+        #b8c4c1;
+
+    border-radius:
+        999px;
+}
+
+
+/* ============================================================
+   DESCRIÇÃO
+============================================================ */
+
+.description {
+    margin:
+        0 0 18px;
+
+    color:
+        #596a66;
+
+    font-size:
+        0.9rem;
+
+    font-weight:
+        500;
+
+    line-height:
+        1.65;
+}
+
+
+/* ============================================================
+   BLOCOS DE INFORMAÇÃO
+============================================================ */
+
+.feature {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin-bottom: 12px;
+
+    padding: 15px;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid
+        #e1e8e5;
+
+    border-radius:
+        14px;
+}
+
+.featureIcon {
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius:
+        10px;
+
+    background:
+        #dcecf2;
+
+    color:
+        #315d57;
+}
+
+.feature strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color:
+        #315d57;
+
+    font-size:
+        0.84rem;
+
+    font-weight:
+        800;
+
+    line-height:
+        1.3;
+}
+
+.feature p {
+    margin: 0;
+
+    color:
+        #6c7b78;
+
+    font-size:
+        0.79rem;
+
+    font-weight:
+        500;
+
+    line-height:
+        1.55;
+}
+
+.feature p strong {
+    display: inline;
+
+    margin: 0;
+
+    color:
+        #4f625e;
+
+    font-size:
+        inherit;
+}
+
+
+/* ============================================================
+   EVOLUÇÃO FUTURA
+============================================================ */
+
+.future {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding: 15px;
+
+    background:
+        #e8f3ef;
+
+    border:
+        1px solid
+        #d7e9e4;
+
+    border-radius:
+        14px;
+}
+
+.futureIcon {
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius:
+        9px;
+
+    background:
+        #315d57;
+
+    color:
+        #ffffff;
+}
+
+.futureContent {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.futureEyebrow {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color:
+        #315d57;
+
+    font-size:
+        0.65rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.1em;
+}
+
+.futureContent p {
+    margin: 0;
+
+    color:
+        #52635f;
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        500;
+
+    line-height:
+        1.55;
+}
+
+
+/* ============================================================
+   RODAPÉ
+============================================================ */
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+
+    padding:
+        16px 24px;
+
+    background:
+        #ffffff;
+
+    border-top:
+        1px solid
+        #e5ebe8;
+}
+
+.closeFooterButton {
+    min-width:
+        100px;
+
+    height:
+        40px;
+
+    padding:
+        0 18px;
+
+    border:
+        none;
+
+    border-radius:
+        10px;
+
+    background:
+        #315d57;
+
+    color:
+        #ffffff;
+
+    font-family:
+        inherit;
+
+    font-size:
+        0.8rem;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        background-color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.closeFooterButton:hover {
+    background:
+        #4f7f78;
+}
+
+.closeFooterButton:active {
+    transform:
+        scale(0.97);
+}
+
+
+/* ============================================================
+   ANIMAÇÕES
+============================================================ */
+
+@keyframes overlayAppear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform:
+            translateY(8px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* ============================================================
+   TABLET / CELULAR
+============================================================ */
+
+@media (max-width: 600px) {
+
+    .overlay {
+        padding: 12px;
+    }
+
+    .modal {
+        max-height:
+            calc(100dvh - 24px);
+
+        border-radius:
+            19px;
+    }
+
+    .modalHeader {
+        padding:
+            20px
+            18px
+            17px;
+    }
+
+    .content {
+        padding:
+            18px;
+    }
+
+    .footer {
+        padding:
+            14px 18px;
+    }
+
+    .headerText h2 {
+        font-size:
+            1.18rem;
+    }
+}
+
+
+/* ============================================================
+   CELULARES PEQUENOS
+============================================================ */
+
+@media (max-width: 420px) {
+
+    .overlay {
+        padding: 8px;
+    }
+
+    .modal {
+        max-height:
+            calc(100dvh - 16px);
+
+        border-radius:
+            17px;
+    }
+
+    .modalHeader {
+        gap: 10px;
+
+        padding:
+            17px 15px;
+    }
+
+    .headerIcon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .closeButton {
+        width: 34px;
+        height: 34px;
+    }
+
+    .content {
+        padding:
+            16px 15px;
+    }
+
+    .footer {
+        padding:
+            13px 15px;
+    }
+
+    .feature,
+    .future {
+        padding:
+            13px;
+    }
+}
+
+
+/* ============================================================
+   REDUÇÃO DE MOVIMENTO
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .overlay,
+    .modal {
+        animation: none;
+    }
+}

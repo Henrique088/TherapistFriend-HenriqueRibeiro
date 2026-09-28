@@ -1,0 +1,559 @@
+:global(:root) {
+    --tf-bg: #faf9f5;
+    --tf-card: #ffffff;
+
+    --tf-primary: #4f7f78;
+    --tf-primary-dark: #315d57;
+    --tf-primary-light: #e8f3ef;
+
+    --tf-blue-light: #dcecf2;
+
+    --tf-text: #243331;
+    --tf-text-soft: #6c7b78;
+
+    --tf-border: #e1e8e5;
+
+    --tf-danger: #a65d58;
+    --tf-danger-light: #f8ecea;
+
+    --tf-shadow: 0 20px 55px rgba(36, 51, 49, 0.16);
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(36, 51, 49, 0.46);
+    backdrop-filter: blur(5px);
+}
+
+.modal {
+    position: relative;
+
+    width: min(100%, 680px);
+    max-height: calc(100vh - 40px);
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--tf-card);
+    border: 1px solid var(--tf-border);
+    border-radius: 24px;
+
+    box-shadow: var(--tf-shadow);
+    overflow: hidden;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+
+    padding: 28px 30px 22px;
+
+    border-bottom: 1px solid var(--tf-border);
+}
+
+.headerIcon {
+    flex: 0 0 44px;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: var(--tf-primary-light);
+    color: var(--tf-primary);
+
+    font-size: 18px;
+}
+
+.headerText {
+    min-width: 0;
+}
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--tf-primary);
+
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+}
+
+.headerText h2 {
+    margin: 0;
+
+    color: var(--tf-text);
+
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.55rem;
+    line-height: 1.2;
+}
+
+.headerText p {
+    margin: 7px 0 0;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.closeButton {
+    flex: 0 0 auto;
+
+    width: 36px;
+    height: 36px;
+
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--tf-border);
+    border-radius: 10px;
+
+    background: transparent;
+    color: var(--tf-text-soft);
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.closeButton:hover {
+    background: var(--tf-bg);
+    color: var(--tf-text);
+    border-color: #ccd8d4;
+}
+
+/* =========================
+   INFO
+========================= */
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin: 20px 30px 4px;
+    padding: 12px 14px;
+
+    border-radius: 12px;
+
+    background: var(--tf-blue-light);
+
+    color: var(--tf-primary-dark);
+
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+.info svg {
+    flex: 0 0 auto;
+    font-size: 14px;
+}
+
+/* =========================
+   DIAS
+========================= */
+
+.listaDias {
+    padding: 10px 30px 22px;
+
+    overflow-y: auto;
+}
+
+.diaItem {
+    border-bottom: 1px solid var(--tf-border);
+    padding: 15px 0;
+
+    transition: background 0.2s ease;
+}
+
+.diaItem:last-child {
+    border-bottom: none;
+}
+
+.diaHeader {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.diaToggle {
+    position: relative;
+
+    flex: 0 0 auto;
+
+    width: 40px;
+    height: 22px;
+
+    cursor: pointer;
+}
+
+.diaToggle input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    opacity: 0;
+}
+
+.toggleVisual {
+    position: absolute;
+    inset: 0;
+
+    border-radius: 999px;
+
+    background: #d5ddda;
+
+    transition: background 0.2s ease;
+}
+
+.toggleVisual::after {
+    content: '';
+
+    position: absolute;
+
+    top: 3px;
+    left: 3px;
+
+    width: 16px;
+    height: 16px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow: 0 1px 4px rgba(36, 51, 49, 0.18);
+
+    transition: transform 0.2s ease;
+}
+
+.diaToggle input:checked + .toggleVisual {
+    background: var(--tf-primary);
+}
+
+.diaToggle input:checked + .toggleVisual::after {
+    transform: translateX(18px);
+}
+
+.diaNome {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.diaNome strong {
+    color: var(--tf-text);
+
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.diaNome span {
+    color: var(--tf-text-soft);
+
+    font-size: 0.75rem;
+}
+
+.diaAtivo .diaNome strong {
+    color: var(--tf-primary-dark);
+}
+
+/* =========================
+   INTERVALOS
+========================= */
+
+.intervalosContainer {
+    margin-top: 14px;
+    margin-left: 53px;
+    padding: 16px;
+    border: 1px solid var(--tf-border);
+    border-radius: 14px;
+    background: var(--tf-bg);
+}
+
+.intervalo {
+    display: flex;
+    align-items: flex-end; 
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.horarioCampo {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.horarioCampo span {
+    color: var(--tf-text-soft);
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.horarioCampo input {
+    width: 100%;
+    height: 42px;
+    padding: 0 10px; 
+    border: 1px solid var(--tf-border);
+    border-radius: 9px;
+    background: white;
+    color: var(--tf-text);
+    font-family: inherit;
+    font-size: 0.9rem;
+    box-sizing: border-box; 
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.horarioCampo input:focus {
+    border-color: var(--tf-primary);
+    box-shadow: 0 0 0 3px rgba(79, 127, 120, 0.12);
+}
+
+.separador {
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--tf-text-soft);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0 2px;
+    white-space: nowrap;
+}
+
+.removerButton {
+    flex: 0 0 38px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ecd5d2;
+    border-radius: 9px;
+    background: var(--tf-danger-light);
+    color: var(--tf-danger);
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.removerButton:hover {
+    background: #f3dfdc;
+    border-color: #dfbdb8;
+}
+
+.removerButton svg {
+    font-size: 12px;
+}
+
+.adicionarButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 4px;
+    padding: 4px 0;
+    border: none;
+    background: transparent;
+    color: var(--tf-primary);
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.adicionarButton:hover {
+    color: var(--tf-primary-dark);
+}
+
+.adicionarButton svg {
+    font-size: 10px;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+
+    padding: 18px 30px;
+
+    border-top: 1px solid var(--tf-border);
+
+    background: #fcfcfa;
+}
+
+.cancelarButton,
+.salvarButton {
+    min-height: 43px;
+
+    padding: 0 18px;
+
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.cancelarButton {
+    border: 1px solid var(--tf-border);
+
+    background: white;
+    color: var(--tf-text-soft);
+}
+
+.cancelarButton:hover {
+    background: var(--tf-bg);
+    color: var(--tf-text);
+}
+
+.salvarButton {
+    border: 1px solid var(--tf-primary);
+
+    background: var(--tf-primary);
+    color: white;
+}
+
+.salvarButton:hover:not(:disabled) {
+    background: var(--tf-primary-dark);
+    border-color: var(--tf-primary-dark);
+    transform: translateY(-1px);
+}
+
+.salvarButton:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 650px) {
+    .overlay {
+        padding: 12px;
+    }
+
+    .modal {
+        width: 100%;
+        max-height: calc(100vh - 24px);
+        border-radius: 20px;
+    }
+
+    .header {
+        padding: 22px 20px 18px;
+    }
+
+    .headerIcon {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+    }
+
+    .headerText h2 {
+        font-size: 1.35rem;
+    }
+
+    .info {
+        margin: 16px 20px 4px;
+    }
+
+    .listaDias {
+        padding: 8px 20px 18px;
+    }
+
+    .intervalosContainer {
+        margin-left: 0;
+    }
+
+    .actions {
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        gap: 10px;
+    }
+
+    .headerIcon {
+        display: none;
+    }
+
+    .headerText p {
+        font-size: 0.82rem;
+    }
+
+    .intervalo {
+        display: grid;
+        grid-template-columns: 1fr 1fr auto;
+        gap: 8px;
+    }
+
+    .separador {
+        display: none;
+    }
+
+    .horarioCampo input {
+        height: 40px;
+    }
+
+    .removerButton {
+        width: 38px;
+        height: 40px;
+    }
+
+    .actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cancelarButton,
+    .salvarButton {
+        width: 100%;
+    }
+}

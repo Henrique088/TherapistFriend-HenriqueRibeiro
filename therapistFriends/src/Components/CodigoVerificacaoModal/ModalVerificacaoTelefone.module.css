@@ -1,0 +1,142 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modalContent {
+  background: #E0FFE0; /* verde pastel */
+  padding: 30px;
+  width: 420px;
+  max-width: 95%;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.titulo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0fd850;
+  margin-bottom: 10px;
+}
+
+.subtitulo {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.inputTelefone {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid #0fd850;
+  outline: none;
+  margin-bottom: 15px;
+  font-size: 16px;
+  text-align: center;
+  transition: 0.2s ease-in-out;
+  background: #fff;
+}
+
+.inputTelefone:focus {
+  border-color: #f9f047;
+  box-shadow: 0 0 8px rgba(249, 240, 71, 0.5);
+}
+
+/* Grupo de inputs estilo Google */
+.inputGroup {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.codeInput {
+  width: 48px;
+  height: 55px;
+  border-radius: 12px;
+  border: 2px solid #0fd850;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  outline: none;
+  transition: 0.2s;
+  background: white;
+}
+
+.codeInput:focus {
+  border-color: #f9f047;
+  box-shadow: 0 0 10px rgba(249, 240, 71, 0.4);
+}
+
+.botaoConfirmar {
+  width: 100%;
+  padding: 12px;
+  background: #0fd850;
+  color: #fff;
+  font-size: 17px;
+  border: none;
+  border-radius: 12px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.botaoConfirmar:hover {
+  background: #0cb744;
+}
+
+.timerArea {
+  margin-top: 12px;
+}
+
+.timerText {
+  font-size: 14px;
+  color: #555;
+}
+
+.reenviarBtn {
+  background: #A8D8EA; /* azul claro */
+  padding: 8px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s;
+  color: #000;
+}
+
+.reenviarBtn:hover {
+  filter: brightness(0.95);
+}
+
+.cancelarBtn {
+  margin-top: 20px;
+  background: transparent;
+  border: none;
+  color: #d9534f;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cancelarBtn:hover {
+  color: #b52b27;
+}

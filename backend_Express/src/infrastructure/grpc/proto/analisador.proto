@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package emotion;
+
+service AnalisadorService {
+  // Chamado durante a call (Real-time)
+  rpc DetectEmotion (FrameRequest) returns (FrameResponse);
+  
+  // Chamado pelo Worker via BullMQ (Background)
+  rpc ObterResumoConsolidado (ResumoRequest) returns (ResumoResponse);
+}
+
+message FrameRequest {
+  string sessaoId = 1;
+  bytes imagem = 2; 
+}
+
+message FrameResponse {
+  string emocao = 1;
+  float confianca = 2;
+}
+
+message ResumoRequest {
+  string sessaoId = 1;
+}
+
+message ResumoResponse {
+  string emocaoDominante = 1;
+  int32 picosAnsiedade = 2;
+  string jsonGraficos = 3; 
+}

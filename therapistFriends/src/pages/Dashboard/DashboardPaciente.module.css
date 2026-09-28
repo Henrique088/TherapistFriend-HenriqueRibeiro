@@ -1,0 +1,2001 @@
+/* ============================================================
+   VARIÁVEIS
+============================================================ */
+
+:global(:root) {
+    --tf-bg: #faf9f5;
+    --tf-card: #ffffff;
+
+    --tf-primary: #4f7f78;
+    --tf-primary-dark: #315d57;
+    --tf-primary-light: #e8f3ef;
+
+    --tf-blue: #4f8fb3;
+    --tf-blue-dark: #3f718c;
+    --tf-blue-light: #dcecf2;
+
+    --tf-text: #243331;
+    --tf-text-soft: #6c7b78;
+
+    --tf-border: #e1e8e5;
+
+    /* Cores vibrantes */
+    --tf-yellow: #e5a93d;
+    --tf-yellow-light: #fff3d7;
+    --tf-yellow-dark: #a96f13;
+
+    --tf-orange: #e4873f;
+    --tf-orange-light: #fff0e4;
+    --tf-orange-dark: #b75d20;
+
+    --tf-purple: #8064a2;
+    --tf-purple-light: #f0e8f7;
+    --tf-purple-dark: #624582;
+
+    --tf-pink: #d66b88;
+    --tf-pink-light: #fae9ef;
+    --tf-pink-dark: #a94865;
+
+    --tf-red: #d65c5c;
+    --tf-red-light: #fae5e5;
+    --tf-red-dark: #b74747;
+
+    --tf-shadow:
+        0 6px 18px rgba(36, 51, 49, 0.06);
+
+    --tf-shadow-hover:
+        0 10px 28px rgba(36, 51, 49, 0.10);
+}
+
+
+/* ============================================================
+   RESET LOCAL
+============================================================ */
+
+.appPaciente,
+.appPaciente * {
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   APLICAÇÃO
+============================================================ */
+
+.appPaciente {
+    display: flex;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    background:
+        var(--tf-bg);
+
+    transition:
+        background 0.8s ease;
+}
+
+
+/* ============================================================
+   PERÍODO DO DIA
+============================================================ */
+
+.manha {
+    background:
+        #f2f8f5;
+}
+
+.tarde {
+    background:
+        #f4f6fb;
+}
+
+.noite {
+    background:
+        #eef3f1;
+}
+
+
+/* ============================================================
+   CONTEÚDO PRINCIPAL
+============================================================ */
+
+.mainContent {
+    flex: 1 1 auto;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    height: 100vh;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    padding:
+        34px
+        38px
+        50px;
+
+    background:
+        var(--tf-bg);
+}
+
+.dashboardContainer {
+    width: 100%;
+    max-width: 1450px;
+    min-width: 0;
+
+    margin: 0 auto;
+}
+
+
+/* ============================================================
+   CABEÇALHO
+============================================================ */
+
+.contentHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    width: 100%;
+
+    margin-bottom: 30px;
+}
+
+.welcomeSection {
+    min-width: 0;
+}
+
+.welcomeEyebrow {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color:
+        var(--tf-primary);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.1em;
+
+    text-transform:
+        uppercase;
+}
+
+.welcomeSection h1 {
+    margin: 0;
+
+    color:
+        var(--tf-text);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            2rem,
+            3vw,
+            2.65rem
+        );
+
+    font-weight:
+        500;
+
+    line-height:
+        1.2;
+
+    overflow-wrap:
+        anywhere;
+}
+
+.welcomeSection p {
+    margin:
+        8px 0 0;
+
+    color:
+        var(--tf-text-soft);
+
+    font-size:
+        0.92rem;
+
+    line-height:
+        1.5;
+}
+
+
+/* ============================================================
+   BOTÃO CRIAR DESABAFO
+============================================================ */
+
+.createPostButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    flex-shrink: 0;
+
+    padding:
+        11px 18px;
+
+    border:
+        none;
+
+    border-radius:
+        12px;
+
+    background:
+        var(--tf-primary);
+
+    color:
+        #ffffff;
+
+    font-size:
+        0.87rem;
+
+    font-weight:
+        700;
+
+    white-space:
+        nowrap;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 6px 16px
+        rgba(49, 93, 87, 0.18);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.createPostButton:hover {
+    background:
+        var(--tf-primary-dark);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 9px 22px
+        rgba(49, 93, 87, 0.24);
+}
+
+.createPostIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 21px;
+    height: 21px;
+
+    flex-shrink: 0;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255, 255, 255, 0.2);
+
+    font-size:
+        1rem;
+
+    font-weight:
+        500;
+}
+
+
+/* ============================================================
+   GRID PRINCIPAL
+============================================================ */
+
+.dashboardGrid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 2fr)
+        minmax(280px, 1fr);
+
+    gap: 28px;
+
+    width: 100%;
+    min-width: 0;
+}
+
+.mainColumn {
+    width: 100%;
+    min-width: 0;
+}
+
+.rightColumn {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+
+    width: 100%;
+    min-width: 0;
+}
+
+
+/* ============================================================
+   TÍTULOS
+============================================================ */
+
+.sectionTitle {
+    margin-bottom:
+        15px;
+}
+
+.sectionEyebrow {
+    display: block;
+
+    margin-bottom:
+        4px;
+
+    color:
+        var(--tf-primary);
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.09em;
+
+    text-transform:
+        uppercase;
+}
+
+.sectionTitle h2 {
+    margin: 0;
+
+    color:
+        var(--tf-text);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        1.45rem;
+
+    font-weight:
+        500;
+}
+
+
+/* ============================================================
+   RELATOS
+============================================================ */
+
+.postsContainer {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+
+    width: 100%;
+    min-width: 0;
+
+    margin-bottom:
+        25px;
+}
+
+.postCard {
+    width: 100%;
+    min-width: 0;
+
+    padding:
+        16px;
+
+    border:
+        1px solid
+        rgba(225, 232, 229, 0.85);
+
+    border-radius:
+        14px;
+
+    background:
+        var(--tf-card);
+
+    box-shadow:
+        var(--tf-shadow);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.postCard:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        #cbded9;
+
+    box-shadow:
+        var(--tf-shadow-hover);
+}
+
+
+/* ============================================================
+   CARDS DA IA
+============================================================ */
+
+.infoCardsContainer {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 14px;
+
+    width: 100%;
+    min-width: 0;
+
+    margin-top:
+        25px;
+}
+
+.infoCard {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+
+    padding:
+        18px;
+
+    border:
+        1px solid
+        transparent;
+
+    border-radius:
+        16px;
+
+    background:
+        var(--tf-card);
+
+    box-shadow:
+        var(--tf-shadow);
+
+    overflow:
+        hidden;
+
+    overflow-wrap:
+        anywhere;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.infoCard::before {
+    content: '';
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 4px;
+
+    background:
+        currentColor;
+
+    opacity:
+        0.9;
+}
+
+.infoCard:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        var(--tf-shadow-hover);
+}
+
+.infoCard h3 {
+    margin:
+        0 0 8px;
+
+    color:
+        var(--tf-text);
+
+    font-size:
+        0.92rem;
+
+    font-weight:
+        700;
+}
+
+.infoCard p {
+    margin: 0;
+
+    color:
+        var(--tf-text-soft);
+
+    font-size:
+        0.82rem;
+
+    line-height:
+        1.5;
+}
+
+
+/* ============================================================
+   CORES DOS CARDS DA IA
+============================================================ */
+
+.infoCardDica {
+    color:
+        var(--tf-yellow-dark);
+
+    background:
+        var(--tf-yellow-light);
+
+    border-color:
+        #f0d99f;
+}
+
+.infoCardMotivação {
+    color:
+        var(--tf-primary-dark);
+
+    background:
+        var(--tf-primary-light);
+
+    border-color:
+        #c8e0da;
+}
+
+.infoCardEstatística {
+    color:
+        var(--tf-blue-dark);
+
+    background:
+        var(--tf-blue-light);
+
+    border-color:
+        #b9d7e2;
+}
+
+
+/* ============================================================
+   MOOD TRACKER
+============================================================ */
+
+.moodCard {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+
+    padding:
+        22px;
+
+    border:
+        1px solid
+        var(--tf-border);
+
+    border-radius:
+        20px;
+
+    background:
+        var(--tf-card);
+
+    text-align:
+        center;
+
+    box-shadow:
+        var(--tf-shadow);
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.moodCardExpanded {
+    border-color:
+        #a7c9c1;
+
+    box-shadow:
+        var(--tf-shadow-hover);
+}
+
+
+/* ============================================================
+   CABEÇALHO DOS CARDS
+============================================================ */
+
+.cardHeader {
+    margin-bottom:
+        18px;
+}
+
+.moodTitleRow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    text-align:
+        left;
+}
+
+.cardEyebrow {
+    display: block;
+
+    margin-bottom:
+        5px;
+
+    color:
+        var(--tf-primary);
+
+    font-size:
+        0.69rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.08em;
+
+    text-transform:
+        uppercase;
+}
+
+.cardHeader h3 {
+    margin: 0;
+
+    color:
+        var(--tf-text);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        1.3rem;
+
+    font-weight:
+        500;
+}
+
+.cardHeader p {
+    margin:
+        7px auto 0;
+
+    max-width:
+        280px;
+
+    color:
+        var(--tf-text-soft);
+
+    font-size:
+        0.8rem;
+
+    line-height:
+        1.5;
+}
+
+
+/* ============================================================
+   BOTÃO DE INFORMAÇÃO DO HUMOR
+============================================================ */
+
+.moodInfoButton {
+    width: 30px;
+    height: 30px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border:
+        1px solid
+        #c8ddd8;
+
+    border-radius:
+        50%;
+
+    background:
+        #edf7f4;
+
+    color:
+        var(--tf-primary-dark);
+
+    cursor:
+        pointer;
+
+    transition:
+        background-color 0.18s ease,
+        color 0.18s ease,
+        border-color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.moodInfoButton span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 17px;
+    height: 17px;
+
+    border:
+        1.5px solid
+        currentColor;
+
+    border-radius:
+        50%;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        800;
+
+    line-height:
+        1;
+}
+
+.moodInfoButton:hover {
+    background:
+        var(--tf-primary-light);
+
+    border-color:
+        #9fc8be;
+
+    color:
+        var(--tf-primary-dark);
+
+    transform:
+        translateY(-1px);
+}
+
+.moodInfoButton:active {
+    transform:
+        scale(0.94);
+}
+
+.moodInfoButton:focus-visible {
+    outline:
+        3px solid
+        rgba(79, 127, 120, 0.18);
+
+    outline-offset:
+        2px;
+}
+
+
+/* ============================================================
+   OPÇÕES DE HUMOR
+============================================================ */
+
+.moodOptions {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 9px;
+
+    width: 100%;
+}
+
+.moodBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    min-width: 0;
+
+    padding:
+        10px 7px;
+
+    border:
+        1px solid
+        transparent;
+
+    border-radius:
+        13px;
+
+    background:
+        #f8faf9;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.moodBtn:hover {
+    transform:
+        translateY(-2px);
+
+    background:
+        #f0f6f4;
+
+    border-color:
+        #cbded9;
+}
+
+.moodBtnActive {
+    background:
+        var(--tf-primary-light);
+
+    border-color:
+        #8fbdb3;
+
+    box-shadow:
+        0 4px 12px
+        rgba(79, 127, 120, 0.12);
+}
+
+.emoji {
+    font-size:
+        1.75rem;
+
+    line-height:
+        1.1;
+}
+
+.label {
+    color:
+        var(--tf-text-soft);
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        600;
+}
+
+.moodBtnActive .label {
+    color:
+        var(--tf-primary-dark);
+}
+
+
+/* ============================================================
+   DESTAQUE INDIVIDUAL DOS HUMORES
+   Usa :has() para diferenciar visualmente os botões.
+============================================================ */
+
+.moodOptions .moodBtn:nth-child(1):hover,
+.moodOptions .moodBtn:nth-child(1)[aria-pressed="true"] {
+    background:
+        var(--tf-blue-light);
+
+    border-color:
+        #a9cfdd;
+}
+
+.moodOptions .moodBtn:nth-child(2):hover,
+.moodOptions .moodBtn:nth-child(2)[aria-pressed="true"] {
+    background:
+        #eef1ef;
+
+    border-color:
+        #cbd4d1;
+}
+
+.moodOptions .moodBtn:nth-child(3):hover,
+.moodOptions .moodBtn:nth-child(3)[aria-pressed="true"] {
+    background:
+        var(--tf-yellow-light);
+
+    border-color:
+        #efd28d;
+}
+
+.moodOptions .moodBtn:nth-child(4):hover,
+.moodOptions .moodBtn:nth-child(4)[aria-pressed="true"] {
+    background:
+        var(--tf-orange-light);
+
+    border-color:
+        #edc09e;
+}
+
+
+/* ============================================================
+   INTENSIDADE
+============================================================ */
+
+.intensidadeBox {
+    width: 100%;
+
+    margin-top:
+        14px;
+
+    padding-top:
+        16px;
+
+    border-top:
+        1px dashed
+        var(--tf-border);
+
+    animation:
+        fadeIn 0.2s ease;
+}
+
+.intensidadeBox p {
+    margin:
+        0 0 12px;
+
+    color:
+        var(--tf-text-soft);
+
+    font-size:
+        0.82rem;
+}
+
+.intensidadeOpcoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    width: 100%;
+
+    margin-bottom:
+        17px;
+}
+
+.intensidadeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    padding: 0;
+
+    border:
+        2px solid
+        #dfe7e4;
+
+    border-radius:
+        50%;
+
+    background:
+        #f8faf9;
+
+    color:
+        var(--tf-text-soft);
+
+    font-size:
+        0.86rem;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+    opacity:
+        0.8;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.intensidadeBtn:hover {
+    transform:
+        scale(1.08);
+
+    opacity:
+        1;
+
+    color:
+        var(--tf-orange-dark);
+
+    background:
+        var(--tf-orange-light);
+
+    border-color:
+        #e7b184;
+}
+
+.intensidadeBtnActive {
+    transform:
+        scale(1.1);
+
+    opacity:
+        1;
+
+    color:
+        #ffffff;
+
+    background:
+        var(--tf-orange);
+
+    border-color:
+        var(--tf-orange-dark);
+
+    box-shadow:
+        0 4px 10px
+        rgba(228, 135, 63, 0.22);
+}
+
+
+/* ============================================================
+   BOTÃO SALVAR HUMOR
+============================================================ */
+
+.salvarMood {
+    width: 100%;
+
+    padding:
+        10px;
+
+    border:
+        none;
+
+    border-radius:
+        11px;
+
+    background:
+        var(--tf-primary);
+
+    color:
+        #ffffff;
+
+    font-size:
+        0.82rem;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 5px 13px
+        rgba(79, 127, 120, 0.18);
+
+    transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.salvarMood:hover:not(:disabled) {
+    background:
+        var(--tf-primary-dark);
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 7px 17px
+        rgba(79, 127, 120, 0.24);
+}
+
+.salvarMood:disabled {
+    opacity:
+        0.45;
+
+    cursor:
+        not-allowed;
+}
+
+
+/* ============================================================
+   RESPIRAÇÃO
+============================================================ */
+
+.breathingCard {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+
+    padding:
+        22px;
+
+    border:
+        1px solid
+        #c9dfe7;
+
+    border-radius:
+        20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #f2f8fa 100%
+        );
+
+    text-align:
+        center;
+
+    box-shadow:
+        var(--tf-shadow);
+}
+
+.breathingCard .cardEyebrow {
+    color:
+        var(--tf-blue-dark);
+}
+
+.breathingContainer {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 170px;
+    height: 170px;
+
+    max-width: 100%;
+
+    margin:
+        1.2rem auto;
+}
+
+.circleOuter {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    border:
+        2px solid
+        var(--tf-blue);
+
+    border-radius:
+        50%;
+
+    opacity:
+        0.38;
+
+    box-shadow:
+        0 0 0 8px
+        rgba(79, 143, 179, 0.05);
+}
+
+.circleInner {
+    width: 53px;
+    height: 53px;
+
+    flex-shrink: 0;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--tf-blue);
+
+    box-shadow:
+        0 5px 16px
+        rgba(79, 143, 179, 0.24);
+
+    transition:
+        all 4s ease-in-out;
+}
+
+.breathingActive .circleInner {
+    animation:
+        breathe 8s
+        infinite
+        ease-in-out;
+}
+
+.breathingText {
+    position: absolute;
+
+    color:
+        var(--tf-blue-dark);
+
+    font-size:
+        0.76rem;
+
+    font-weight:
+        700;
+}
+
+
+/* ============================================================
+   BOTÃO RESPIRAÇÃO
+============================================================ */
+
+.btnBreathing {
+    margin-top:
+        4px;
+
+    padding:
+        8px 16px;
+
+    border:
+        none;
+
+    border-radius:
+        11px;
+
+    background:
+        var(--tf-blue);
+
+    color:
+        #ffffff;
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 4px 11px
+        rgba(79, 143, 179, 0.16);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.btnBreathing:hover {
+    background:
+        var(--tf-blue-dark);
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 6px 15px
+        rgba(79, 143, 179, 0.22);
+}
+
+
+/* ============================================================
+   ANIMAÇÃO RESPIRAÇÃO
+============================================================ */
+
+@keyframes breathe {
+    0%,
+    100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(3.2);
+    }
+}
+
+
+/* ============================================================
+   SKELETON
+============================================================ */
+
+.skeletonCard {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        #f4f6f5;
+
+    box-shadow:
+        none;
+}
+
+.skeletonCard::after {
+    content: '';
+
+    position: absolute;
+    inset: 0;
+
+    transform:
+        translateX(-100%);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0) 0,
+            rgba(255, 255, 255, 0.2) 20%,
+            rgba(255, 255, 255, 0.5) 60%,
+            rgba(255, 255, 255, 0) 100%
+        );
+
+    animation:
+        shimmer 2s infinite;
+}
+
+.skeletonTitle {
+    width: 60%;
+    height: 24px;
+
+    margin-bottom:
+        15px;
+
+    border-radius:
+        4px;
+
+    background:
+        #dfe5e2;
+}
+
+.skeletonText {
+    width: 100%;
+    height: 14px;
+
+    margin-bottom:
+        8px;
+
+    border-radius:
+        4px;
+
+    background:
+        #dfe5e2;
+}
+
+.skeletonTextShort {
+    width: 40%;
+}
+
+@keyframes shimmer {
+    100% {
+        transform:
+            translateX(100%);
+    }
+}
+
+
+/* ============================================================
+   FADE DA INTENSIDADE
+============================================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* ============================================================
+   DESKTOP MENOR
+============================================================ */
+
+@media (max-width: 1150px) {
+
+    .mainContent {
+        padding:
+            30px
+            28px
+            45px;
+    }
+
+    .dashboardGrid {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(260px, 310px);
+
+        gap:
+            22px;
+    }
+
+    .infoCardsContainer {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+    }
+}
+
+
+/* ============================================================
+   TABLET / MENU MOBILE
+============================================================ */
+
+@media (max-width: 1024px) {
+
+    .appPaciente {
+        width: 100%;
+        min-width: 0;
+
+        overflow-x:
+            hidden;
+    }
+
+    .mainContent {
+        flex:
+            1 1 auto;
+
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+
+        padding:
+            82px
+            24px
+            35px;
+
+        overflow-x:
+            hidden;
+    }
+
+    .dashboardContainer {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .contentHeader {
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap:
+            18px;
+
+        width:
+            100%;
+    }
+
+    .welcomeSection {
+        width:
+            100%;
+    }
+
+    .createPostButton {
+        width:
+            100%;
+
+        max-width:
+            100%;
+    }
+
+    .dashboardGrid {
+        display:
+            grid;
+
+        grid-template-columns:
+            minmax(0, 1fr);
+
+        gap:
+            20px;
+
+        width:
+            100%;
+    }
+
+    .mainColumn,
+    .rightColumn {
+        width:
+            100%;
+
+        min-width:
+            0;
+    }
+
+    .rightColumn {
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+
+        gap:
+            20px;
+    }
+
+    .moodCard,
+    .breathingCard {
+        width:
+            100%;
+
+        min-width:
+            0;
+    }
+}
+
+
+/* ============================================================
+   TABLET MENOR
+============================================================ */
+
+@media (max-width: 700px) {
+
+    .mainContent {
+        padding:
+            78px
+            18px
+            32px;
+    }
+
+    .infoCardsContainer {
+        grid-template-columns:
+            minmax(0, 1fr);
+
+        width:
+            100%;
+    }
+
+    .rightColumn {
+        grid-template-columns:
+            minmax(0, 1fr);
+
+        width:
+            100%;
+    }
+}
+
+
+/* ============================================================
+   CELULAR
+============================================================ */
+
+@media (max-width: 600px) {
+
+    .appPaciente {
+        width:
+            100%;
+
+        min-width:
+            0;
+
+        overflow-x:
+            hidden;
+    }
+
+    .mainContent {
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        min-width:
+            0;
+
+        padding:
+            74px
+            16px
+            30px;
+    }
+
+    .dashboardContainer {
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        min-width:
+            0;
+    }
+
+
+    /* ---------- CABEÇALHO ---------- */
+
+    .contentHeader {
+        width:
+            100%;
+
+        margin-bottom:
+            24px;
+
+        gap:
+            16px;
+    }
+
+    .welcomeSection {
+        width:
+            100%;
+
+        min-width:
+            0;
+    }
+
+    .welcomeSection h1 {
+        width:
+            100%;
+
+        font-size:
+            1.75rem;
+
+        line-height:
+            1.25;
+
+        overflow-wrap:
+            anywhere;
+    }
+
+    .welcomeSection p {
+        font-size:
+            0.86rem;
+    }
+
+    .createPostButton {
+        width:
+            100%;
+
+        padding:
+            12px 16px;
+    }
+
+
+    /* ---------- GRID ---------- */
+
+    .dashboardGrid {
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        width:
+            100%;
+
+        min-width:
+            0;
+
+        gap:
+            18px;
+    }
+
+    .mainColumn,
+    .rightColumn {
+        width:
+            100%;
+
+        min-width:
+            0;
+    }
+
+    .rightColumn {
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        gap:
+            18px;
+    }
+
+
+    /* ---------- TÍTULOS ---------- */
+
+    .sectionTitle {
+        margin-bottom:
+            13px;
+    }
+
+    .sectionTitle h2 {
+        font-size:
+            1.3rem;
+    }
+
+
+    /* ---------- RELATOS ---------- */
+
+    .postsContainer {
+        width:
+            100%;
+
+        min-width:
+            0;
+    }
+
+    .postCard {
+        width:
+            100%;
+
+        min-width:
+            0;
+    }
+
+
+    /* ---------- CARDS IA ---------- */
+
+    .infoCardsContainer {
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        width:
+            100%;
+
+        min-width:
+            0;
+
+        gap:
+            12px;
+    }
+
+    .infoCard {
+        width:
+            100%;
+
+        min-width:
+            0;
+    }
+
+
+    /* ---------- MOOD ---------- */
+
+    .moodCard {
+        width:
+            100%;
+
+        padding:
+            18px;
+
+        border-radius:
+            18px;
+    }
+
+    .cardHeader {
+        margin-bottom:
+            16px;
+    }
+
+    .cardHeader h3 {
+        font-size:
+            1.2rem;
+    }
+
+    .cardHeader p {
+        max-width:
+            100%;
+    }
+
+    .moodInfoButton {
+        width:
+            28px;
+
+        height:
+            28px;
+    }
+
+    .moodInfoButton span {
+        width:
+            16px;
+
+        height:
+            16px;
+    }
+
+    .moodOptions {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+
+        gap:
+            8px;
+
+        width:
+            100%;
+    }
+
+    .moodBtn {
+        width:
+            100%;
+
+        padding:
+            10px 5px;
+    }
+
+    .emoji {
+        font-size:
+            1.6rem;
+    }
+
+    .label {
+        font-size:
+            0.68rem;
+    }
+
+
+    /* ---------- INTENSIDADE ---------- */
+
+    .intensidadeBox {
+        width:
+            100%;
+    }
+
+    .intensidadeOpcoes {
+        gap:
+            6px;
+
+        width:
+            100%;
+    }
+
+    .intensidadeBtn {
+        width:
+            38px;
+
+        height:
+            38px;
+
+        font-size:
+            0.8rem;
+    }
+
+
+    /* ---------- RESPIRAÇÃO ---------- */
+
+    .breathingCard {
+        width:
+            100%;
+
+        padding:
+            18px;
+
+        border-radius:
+            18px;
+    }
+
+    .breathingContainer {
+        width:
+            150px;
+
+        height:
+            150px;
+
+        margin:
+            1rem auto;
+    }
+}
+
+
+/* ============================================================
+   CELULARES MUITO PEQUENOS
+============================================================ */
+
+@media (max-width: 380px) {
+
+    .mainContent {
+        padding:
+            70px
+            12px
+            28px;
+    }
+
+    .welcomeSection h1 {
+        font-size:
+            1.6rem;
+    }
+
+    .moodCard,
+    .breathingCard {
+        padding:
+            16px;
+    }
+
+    .intensidadeOpcoes {
+        gap:
+            4px;
+    }
+
+    .intensidadeBtn {
+        width:
+            34px;
+
+        height:
+            34px;
+
+        font-size:
+            0.75rem;
+    }
+
+    .breathingContainer {
+        width:
+            140px;
+
+        height:
+            140px;
+    }
+}
+
+
+/* ============================================================
+   REDUÇÃO DE MOVIMENTO
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .appPaciente,
+    .createPostButton,
+    .moodBtn,
+    .moodInfoButton,
+    .infoCard,
+    .postCard,
+    .salvarMood,
+    .btnBreathing {
+        transition:
+            none;
+    }
+
+    .breathingActive .circleInner,
+    .skeletonCard::after {
+        animation:
+            none;
+    }
+}

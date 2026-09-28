@@ -1,0 +1,30 @@
+# ----------------------------------------------------
+# Etapa 1: Build (Compilação do TypeScript)
+# ----------------------------------------------------
+FROM node:20-alpine AS builder
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+RUN npm run build:full
+
+# ----------------------------------------------------
+# Etapa 2: Execução (Imagem Final Otimizada)
+# ----------------------------------------------------
+FROM node:20-alpine AS runner
+
+WORKDIR /usr/src/app
+
+# Copia apenas dependências de produção para economizar espaço
+COPY package*.json ./
+RUN npm ci --only=production && npm cache clean --force
+
+# Copia do estágio de build apenas o código final compilado
+COPY --from=builder /usr/src/app/dist ./dist
+
+EXPOSE 8000
+
+CMD ["npm", "start"]

@@ -1,0 +1,838 @@
+:global(:root) {
+  --tf-bg: #faf9f5;
+  --tf-card: #ffffff;
+
+  --tf-primary: #4f7f78;
+  --tf-primary-dark: #315d57;
+  --tf-primary-light: #e8f3ef;
+
+  --tf-blue-light: #dcecf2;
+
+  --tf-text: #243331;
+  --tf-text-soft: #6c7b78;
+
+  --tf-border: #e1e8e5;
+
+  --tf-shadow:
+    0 5px 16px rgba(36, 51, 49, 0.055);
+
+  --tf-shadow-hover:
+    0 10px 28px rgba(36, 51, 49, 0.09);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.postsContainer {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+
+  width: 100%;
+  min-width: 0;
+
+  margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.postCard {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+
+  padding: 21px 22px;
+
+  border: 1px solid var(--tf-border);
+
+  border-radius: 18px;
+
+  background: var(--tf-card);
+
+  box-shadow: var(--tf-shadow);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.postCard:hover {
+  transform: translateY(-2px);
+
+  border-color: #d5e1dd;
+
+  box-shadow: var(--tf-shadow-hover);
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.postHeader {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 17px;
+}
+
+.userInfo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  min-width: 0;
+}
+
+.userAvatar {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--tf-primary),
+      var(--tf-primary-dark)
+    );
+
+  color: #ffffff;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  letter-spacing: 0.03em;
+}
+
+.username {
+  max-width: 260px;
+
+  overflow: hidden;
+
+  color: var(--tf-text);
+
+  font-size: 0.88rem;
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.postTime {
+  margin-top: 3px;
+
+  color: var(--tf-text-soft);
+
+  font-size: 0.7rem;
+}
+
+
+/* =========================================================
+   META — TÍTULO / CATEGORIA
+========================================================= */
+
+.metaInfo {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px 12px;
+
+  margin-bottom: 16px;
+}
+
+.metaItem {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  min-width: 0;
+
+  padding: 7px 10px;
+
+  border-radius: 9px;
+
+  background: #f5f8f6;
+}
+
+.metaItem span {
+  color: var(--tf-text-soft);
+
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.metaItem strong {
+  max-width: 300px;
+
+  overflow: hidden;
+
+  color: var(--tf-primary-dark);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   CONTEÚDO DO RELATO
+========================================================= */
+
+.postContent {
+  margin-bottom: 19px;
+
+  color: var(--tf-text);
+
+  font-size: 0.93rem;
+
+  line-height: 1.7;
+
+  white-space: pre-wrap;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   ANÁLISE DA IA
+========================================================= */
+
+.aiIndicator {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin: -21px -22px 18px;
+
+  padding: 8px 15px;
+
+  border-bottom: 1px solid rgba(79, 127, 120, 0.1);
+
+  background: rgba(79, 127, 120, 0.06);
+}
+
+.aiIndicator span {
+  color: var(--tf-text-soft);
+
+  font-size: 0.68rem;
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.07em;
+}
+
+.aiIndicator strong {
+  padding: 4px 9px;
+
+  border-radius: 999px;
+
+  background: rgba(79, 127, 120, 0.12);
+
+  color: var(--tf-primary-dark);
+
+  font-size: 0.68rem;
+
+  text-transform: capitalize;
+}
+
+
+/* =========================================================
+   AÇÕES
+========================================================= */
+
+.postActions {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding-top: 14px;
+
+  border-top: 1px solid #edf1ef;
+}
+
+.primaryActions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  min-width: 0;
+}
+
+.likeButton,
+.contactButton,
+.editButton,
+.deleteButton {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  min-height: 34px;
+
+  padding: 6px 9px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: transparent;
+
+  font-family: inherit;
+
+  font-size: 0.78rem;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* Like */
+
+.likeButton {
+  color: var(--tf-text-soft);
+}
+
+.likeButton:hover:not(:disabled) {
+  background: #f7f1f2;
+
+  color: #d85c6a;
+}
+
+.likeButton:disabled {
+  opacity: 0.55;
+
+  cursor: wait;
+}
+
+.liked {
+  color: #d85c6a;
+}
+
+
+/* Entrar em contato */
+
+.contactButton {
+  color: var(--tf-primary-dark);
+}
+
+.contactButton:hover {
+  background: var(--tf-primary-light);
+
+  transform: translateY(-1px);
+}
+
+
+/* Editar / excluir */
+
+.postActionsExtra {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+.editButton {
+  color: var(--tf-primary);
+}
+
+.editButton:hover {
+  background: var(--tf-primary-light);
+
+  color: var(--tf-primary-dark);
+}
+
+.deleteButton {
+  color: #9b7777;
+}
+
+.deleteButton:hover {
+  background: #f8eeee;
+
+  color: #a34f4f;
+}
+
+
+/* =========================================================
+   INTENSIDADES DA IA
+========================================================= */
+
+.grave {
+    border-left: 4px solid #c94f4f;
+}
+
+.leve {
+    border-left: 4px solid #4f8f84;
+}
+
+.mediano {
+    border-left: 4px solid #d8892f;
+}
+
+.indeterminado {
+    border-left: 4px solid #71807c;
+}
+
+
+/* =========================================================
+   ESTADO VAZIO
+========================================================= */
+
+.noResults {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: 230px;
+
+  padding: 35px 25px;
+
+  border: 1px dashed var(--tf-border);
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.65);
+
+  text-align: center;
+}
+
+.noResultsIcon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  margin-bottom: 13px;
+
+  border-radius: 50%;
+
+  background: var(--tf-primary-light);
+
+  color: var(--tf-primary-dark);
+}
+
+.noResults h3 {
+  margin: 0 0 6px;
+
+  color: var(--tf-text);
+
+  font-family: Georgia, serif;
+
+  font-size: 1.1rem;
+}
+
+.noResults p {
+  max-width: 420px;
+
+  margin: 0;
+
+  color: var(--tf-text-soft);
+
+  font-size: 0.82rem;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   SKELETON
+========================================================= */
+
+.skeletonCard {
+  padding: 21px 22px;
+
+  border: 1px solid var(--tf-border);
+
+  border-radius: 18px;
+
+  background: #ffffff;
+}
+
+.skeletonHeader {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  margin-bottom: 20px;
+}
+
+.skeletonAvatar {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #edf2f0;
+
+  animation: shimmer 1.4s infinite;
+}
+
+.skeletonLines {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.skeletonLines span:first-child {
+  width: 130px;
+  height: 10px;
+
+  border-radius: 5px;
+
+  background: #edf2f0;
+
+  animation: shimmer 1.4s infinite;
+}
+
+.skeletonLines span:last-child {
+  width: 85px;
+  height: 8px;
+
+  border-radius: 5px;
+
+  background: #f1f4f3;
+
+  animation: shimmer 1.4s infinite;
+}
+
+.skeletonTitle {
+  width: 45%;
+  height: 13px;
+
+  margin-bottom: 16px;
+
+  border-radius: 6px;
+
+  background: #edf2f0;
+
+  animation: shimmer 1.4s infinite;
+}
+
+.skeletonText {
+  width: 100%;
+  height: 10px;
+
+  margin-bottom: 9px;
+
+  border-radius: 5px;
+
+  background: #f1f4f3;
+
+  animation: shimmer 1.4s infinite;
+}
+
+.skeletonTextShort {
+  width: 70%;
+  height: 10px;
+
+  margin-bottom: 20px;
+
+  border-radius: 5px;
+
+  background: #f1f4f3;
+
+  animation: shimmer 1.4s infinite;
+}
+
+.skeletonFooter {
+  width: 100%;
+  height: 1px;
+
+  background: #edf1ef;
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.55;
+  }
+}
+
+
+/* =========================================================
+   TOAST DE CONFIRMAÇÃO
+========================================================= */
+
+.confirmToast p {
+  margin: 0 0 12px;
+
+  color: var(--tf-text);
+
+  font-size: 0.86rem;
+}
+
+.confirmActions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 8px;
+}
+
+.confirmDelete,
+.confirmCancel {
+  padding: 6px 12px;
+
+  border: none;
+
+  border-radius: 7px;
+
+  font-family: inherit;
+
+  font-size: 0.76rem;
+
+  cursor: pointer;
+}
+
+.confirmDelete {
+  background: #a34f4f;
+
+  color: #ffffff;
+}
+
+.confirmCancel {
+  background: #edf1ef;
+
+  color: var(--tf-text);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .postCard {
+    padding: 19px;
+  }
+
+  .aiIndicator {
+    margin: -19px -19px 17px;
+  }
+
+  .postContent {
+    font-size: 0.89rem;
+  }
+
+  .metaItem strong {
+    max-width: 220px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+  .postsContainer {
+    gap: 13px;
+  }
+
+  .postCard {
+    padding: 16px;
+
+    border-radius: 15px;
+  }
+
+  .aiIndicator {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    margin: -16px -16px 16px;
+
+    padding: 9px 13px;
+  }
+
+  .postHeader {
+    margin-bottom: 14px;
+  }
+
+  .userAvatar {
+    width: 38px;
+    height: 38px;
+
+    font-size: 0.7rem;
+  }
+
+  .username {
+    max-width: 180px;
+
+    font-size: 0.82rem;
+  }
+
+  .postTime {
+    font-size: 0.66rem;
+  }
+
+  .metaInfo {
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-bottom: 14px;
+  }
+
+  .metaItem {
+    width: 100%;
+
+    justify-content: space-between;
+
+    gap: 10px;
+  }
+
+  .metaItem strong {
+    max-width: 65%;
+
+    text-align: right;
+  }
+
+  .postContent {
+    margin-bottom: 15px;
+
+    font-size: 0.87rem;
+
+    line-height: 1.65;
+  }
+
+  .postActions {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+  .primaryActions {
+    width: 100%;
+  }
+
+  .postActionsExtra {
+    width: 100%;
+
+    padding-top: 8px;
+
+    border-top: 1px solid #edf1ef;
+  }
+
+  .likeButton,
+  .contactButton,
+  .editButton,
+  .deleteButton {
+    min-height: 35px;
+
+    font-size: 0.74rem;
+  }
+
+  .postActionsExtra {
+    justify-content: flex-end;
+  }
+
+}
+
+
+/* =========================================================
+   CELULAR PEQUENO
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .postCard {
+    padding: 14px;
+  }
+
+  .aiIndicator {
+    margin: -14px -14px 14px;
+  }
+
+  .primaryActions {
+    gap: 5px;
+  }
+
+  .contactButton span {
+    display: none;
+  }
+
+  .contactButton {
+    width: 34px;
+
+    justify-content: center;
+  }
+
+  .postActionsExtra {
+    justify-content: space-between;
+  }
+
+}

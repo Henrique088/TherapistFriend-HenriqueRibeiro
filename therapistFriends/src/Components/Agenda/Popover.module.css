@@ -1,0 +1,533 @@
+:global(:root) {
+    --tf-card: #ffffff;
+
+    --tf-primary: #4f7f78;
+    --tf-primary-dark: #315d57;
+    --tf-primary-light: #e8f3ef;
+
+    --tf-blue-light: #dcecf2;
+
+    --tf-text: #243331;
+    --tf-text-soft: #6c7b78;
+
+    --tf-border: #e1e8e5;
+
+    --tf-danger: #a65d58;
+    --tf-danger-light: #f8ecea;
+
+    --tf-shadow: 0 14px 35px rgba(36, 51, 49, 0.15);
+}
+
+/* =========================
+   Popover
+========================= */
+
+.popover {
+    position: fixed;
+
+    z-index: 1200;
+
+    width: min(300px, calc(100vw - 24px));
+    max-height: calc(100vh - 24px);
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 0;
+
+    border: 1px solid var(--tf-border);
+    border-radius: 17px;
+
+    background: var(--tf-card);
+
+    box-shadow: var(--tf-shadow);
+
+    transform: translate(-50%, -110%);
+
+    overflow: visible;
+
+    animation: popoverIn 0.15s ease-out;
+}
+
+.popover,
+.popover * {
+    box-sizing: border-box;
+}
+
+/* =========================
+   Seta
+========================= */
+
+.arrow {
+    position: absolute;
+
+    left: 50%;
+    bottom: -7px;
+
+    width: 14px;
+    height: 14px;
+
+    border-right: 1px solid var(--tf-border);
+    border-bottom: 1px solid var(--tf-border);
+
+    background: var(--tf-card);
+
+    transform: translateX(-50%) rotate(45deg);
+
+    z-index: -1;
+}
+
+/* =========================
+   Header
+========================= */
+
+.header {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 15px;
+
+    border-bottom: 1px solid var(--tf-border);
+
+    background: #fcfdfc;
+
+    border-radius: 17px 17px 0 0;
+}
+
+.headerIcon {
+    width: 34px;
+    height: 34px;
+
+    flex: 0 0 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: var(--tf-primary-light);
+
+    color: var(--tf-primary);
+
+    font-size: 16px;
+}
+
+.headerContent {
+    min-width: 0;
+
+    padding-right: 25px;
+}
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: var(--tf-primary-dark);
+
+    font-size: 0.57rem;
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
+}
+
+.headerContent h4 {
+    margin: 0;
+
+    color: var(--tf-text);
+
+    font-family: Georgia, 'Times New Roman', serif;
+
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.closeButton {
+    position: absolute;
+
+    top: 13px;
+    right: 12px;
+
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: var(--tf-text-soft);
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.closeButton:hover {
+    background: #eef3f1;
+
+    color: var(--tf-text);
+}
+
+/* =========================
+   Horário
+========================= */
+
+.schedule {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin: 14px 14px 0;
+    padding: 10px 11px;
+
+    border-radius: 10px;
+
+    background: var(--tf-primary-light);
+}
+
+.scheduleDate {
+    color: var(--tf-primary-dark);
+
+    font-size: 0.73rem;
+    font-weight: 600;
+}
+
+.schedule strong {
+    color: var(--tf-text);
+
+    font-size: 0.75rem;
+
+    white-space: nowrap;
+}
+
+.description {
+    margin: 9px 14px 13px;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.72rem;
+    line-height: 1.45;
+}
+
+/* =========================
+   Section
+========================= */
+
+.section {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+
+    padding: 0 14px 14px;
+}
+
+/* =========================
+   Badge
+========================= */
+
+.badgeRow {
+    display: flex;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 4px 8px;
+
+    border-radius: 20px;
+
+    background: var(--tf-blue-light);
+
+    color: var(--tf-primary-dark);
+
+    font-size: 0.63rem;
+    font-weight: 700;
+}
+
+/* =========================
+   Info
+========================= */
+
+.infoBox {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 8px;
+
+    padding: 9px 10px;
+
+    border-radius: 10px;
+
+    background: #f5f8f7;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.69rem;
+    line-height: 1.45;
+}
+
+.infoBox svg {
+    flex: 0 0 auto;
+
+    margin-top: 1px;
+
+    color: var(--tf-primary);
+
+    font-size: 14px;
+}
+
+/* =========================
+   Exception
+========================= */
+
+.exceptionBox {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    padding: 11px;
+
+    border: 1px solid var(--tf-border);
+    border-radius: 12px;
+
+    background: #fcfdfc;
+}
+
+.exceptionHeader {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--tf-text);
+
+    font-size: 0.75rem;
+}
+
+.exceptionHeader svg {
+    color: var(--tf-primary);
+
+    font-size: 14px;
+}
+
+.exceptionBox p {
+    margin: 0;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.68rem;
+    line-height: 1.45;
+}
+
+/* =========================
+   Input
+========================= */
+
+.input {
+    width: 100%;
+    height: 38px;
+
+    padding: 0 10px;
+
+    border: 1px solid var(--tf-border);
+    border-radius: 9px;
+
+    background: #fff;
+
+    color: var(--tf-text);
+
+    font-family: inherit;
+    font-size: 0.72rem;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.input::placeholder {
+    color: #9aa6a3;
+}
+
+.input:focus {
+    border-color: var(--tf-primary);
+
+    box-shadow: 0 0 0 3px rgba(79, 127, 120, 0.1);
+}
+
+/* =========================
+   Actions
+========================= */
+
+.actionButton {
+    width: 100%;
+    min-height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 7px 10px;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.actionButton svg {
+    flex: 0 0 auto;
+
+    font-size: 14px;
+}
+
+.primaryButton {
+    border: 1px solid var(--tf-primary);
+
+    background: var(--tf-primary);
+
+    color: #fff;
+}
+
+.primaryButton:hover {
+    border-color: var(--tf-primary-dark);
+
+    background: var(--tf-primary-dark);
+
+    transform: translateY(-1px);
+}
+
+.dangerButton {
+    border: 1px solid rgba(166, 93, 88, 0.3);
+
+    background: var(--tf-danger-light);
+
+    color: var(--tf-danger);
+}
+
+.dangerButton:hover {
+    border-color: var(--tf-danger);
+
+    background: #f2dfdc;
+}
+
+/* =========================
+   Footer
+========================= */
+
+.footer {
+    padding: 11px 14px 14px;
+
+    border-top: 1px solid var(--tf-border);
+}
+
+.cancelButton {
+    width: 100%;
+    min-height: 36px;
+
+    border: 1px solid var(--tf-border);
+    border-radius: 9px;
+
+    background: #fff;
+
+    color: var(--tf-text-soft);
+
+    font-family: inherit;
+
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.cancelButton:hover {
+    background: #f4f7f5;
+
+    color: var(--tf-text);
+}
+
+/* =========================
+   Animation
+========================= */
+
+@keyframes popoverIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -105%) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -110%) scale(1);
+    }
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 480px) {
+    .popover {
+        width: min(290px, calc(100vw - 20px));
+    }
+
+    .header {
+        padding: 13px;
+    }
+
+    .schedule {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    .description {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    .section {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .footer {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}

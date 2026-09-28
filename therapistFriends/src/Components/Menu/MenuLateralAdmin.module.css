@@ -1,0 +1,370 @@
+/* =========================================================
+   MENU LATERAL ADMIN
+   Identidade visual TherapistFriend
+   ========================================================= */
+
+.menuAdmin {
+    position: relative;
+
+    width: 252px;
+    min-width: 252px;
+    height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+
+    padding: 22px 12px;
+
+    background: #ffffff;
+    color: #243331;
+
+    border-right: 1px solid #e4ebe8;
+
+    overflow: hidden;
+
+    transition:
+        width 0.25s ease,
+        min-width 0.25s ease,
+        padding 0.25s ease;
+
+    z-index: 200;
+}
+
+
+/* =========================
+   MENU RECOLHIDO
+========================= */
+
+.collapsed {
+    width: 76px;
+    min-width: 76px;
+
+    padding: 22px 10px;
+
+    align-items: center;
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
+.menuTitulo {
+    width: 100%;
+
+    margin: 3px 12px 26px;
+
+    color: #315d57;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+
+    line-height: 1.2;
+
+    text-align: left;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   NAVEGAÇÃO
+========================= */
+
+.nav {
+    width: 100%;
+    min-width: 0;
+}
+
+.navList {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+}
+
+.navItem {
+    width: 100%;
+
+    margin: 3px 0;
+}
+
+
+/* =========================
+   LINKS
+========================= */
+
+.navLink {
+    position: relative;
+
+    width: 100%;
+    min-height: 46px;
+
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    padding: 0 13px;
+
+    gap: 12px;
+
+    border: 1px solid transparent;
+    border-radius: 11px;
+
+    background: transparent;
+
+    color: #687773;
+
+    font-family: inherit;
+    font-size: 0.87rem;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.18s ease,
+        color 0.18s ease,
+        border-color 0.18s ease,
+        transform 0.18s ease;
+}
+
+
+/* Ícones */
+
+.navLink svg {
+    width: 19px;
+    height: 19px;
+
+    flex-shrink: 0;
+
+    color: #7b8985;
+
+    transition:
+        color 0.18s ease,
+        transform 0.18s ease;
+}
+
+
+/* Hover */
+
+.navLink:hover {
+    background: #f2f6f4;
+
+    color: #315d57;
+
+    border-color: #e5eeeb;
+}
+
+.navLink:hover svg {
+    color: #4f7f78;
+
+    transform: translateX(1px);
+}
+
+
+/* Foco acessível */
+
+.navLink:focus-visible {
+    outline: 3px solid rgba(79, 127, 120, 0.18);
+    outline-offset: 2px;
+}
+
+
+/* =========================
+   MENU RECOLHIDO
+========================= */
+
+.collapsed .navLink {
+    justify-content: center;
+
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.collapsed .navLink svg {
+    margin: 0;
+}
+
+
+/* =========================
+   BOTÃO DE RECOLHER
+========================= */
+
+.toggleButton {
+    position: absolute;
+
+    top: 50%;
+    right: 4px;
+
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    transform: translateY(-50%);
+
+    border: 1px solid #dce5e2;
+    border-radius: 50%;
+
+    background: #ffffff;
+    color: #4f7f78;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 10px rgba(36, 51, 49, 0.12);
+
+    z-index: 20;
+
+    transition:
+        background-color 0.18s ease,
+        color 0.18s ease,
+        box-shadow 0.18s ease,
+        transform 0.18s ease;
+}
+
+.toggleButton:hover {
+    background: #e8f3ef;
+    color: #315d57;
+
+    box-shadow:
+        0 5px 14px rgba(36, 51, 49, 0.14);
+}
+
+.toggleButton:active {
+    transform:
+        translateY(-50%)
+        scale(0.94);
+}
+
+.toggleButton svg {
+    width: 12px;
+    height: 12px;
+}
+
+
+
+/* Botão quando menu está recolhido */
+
+.collapsed .toggleButton {
+    right: 8px;
+
+    transform: translateY(-50%);
+}
+
+.collapsed .toggleButton:active {
+    transform:
+        translateY(-50%)
+        scale(0.94);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .menuAdmin {
+        width: 250px;
+        min-width: 250px;
+
+        height: 100dvh;
+        min-height: 100dvh;
+
+        padding: 20px 12px;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        padding-bottom:
+            calc(
+                20px +
+                env(safe-area-inset-bottom, 0px)
+            );
+    }
+
+
+    .collapsed {
+        width: 76px;
+        min-width: 76px;
+
+        padding:
+            20px 10px
+            calc(
+                20px +
+                env(safe-area-inset-bottom, 0px)
+            );
+    }
+
+
+    .menuTitulo {
+        margin-bottom: 22px;
+    }
+
+
+    .navItem {
+        margin: 3px 0;
+    }
+
+
+    .navLink {
+        min-height: 48px;
+
+        font-size: 0.88rem;
+    }
+
+
+    .navLink svg {
+        width: 20px;
+        height: 20px;
+    }
+
+
+    .toggleButton {
+        display: none;
+    }
+}
+
+
+/* =========================
+   CELULARES PEQUENOS
+========================= */
+
+@media (max-width: 420px) {
+
+    .menuAdmin {
+        width: 270px;
+        min-width: 270px;
+
+        max-width: 86vw;
+    }
+}
+
+
+/* =========================
+   ACESSIBILIDADE
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .menuAdmin,
+    .navLink,
+    .navLink svg,
+    .toggleButton {
+        transition: none;
+    }
+}

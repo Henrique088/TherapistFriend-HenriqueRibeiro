@@ -1,0 +1,1001 @@
+/* =========================================================
+   FILTROS ADMIN
+   ========================================================= */
+
+.filtrosAdmin {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.searchWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 15px;
+    z-index: 1;
+    font-size: 0.95rem;
+    pointer-events: none;
+}
+
+.filtroInput {
+    width: 100%;
+    height: 46px;
+    padding: 0 42px 0 42px;
+
+    border: 1px solid #dfe8e5;
+    border-radius: 12px;
+
+    outline: none;
+
+    background: #ffffff;
+    color: #243331;
+
+    font-family: inherit;
+    font-size: 0.88rem;
+
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.filtroInput::placeholder {
+    color: #9aa7a4;
+}
+
+.filtroInput:focus {
+    border-color: #4f7f78;
+    box-shadow: 0 0 0 3px rgba(79, 127, 120, 0.1);
+}
+
+.clearSearch {
+    position: absolute;
+    right: 10px;
+
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #eef3f1;
+    color: #687773;
+
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.clearSearch:hover {
+    background: #e3ece9;
+    color: #315d57;
+}
+
+.filtroSelect {
+    width: 100%;
+    height: 46px;
+
+    padding: 0 12px;
+
+    border: 1px solid #dfe8e5;
+    border-radius: 12px;
+
+    outline: none;
+
+    background: #ffffff;
+    color: #315d57;
+
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.filtroSelect:focus {
+    border-color: #4f7f78;
+    box-shadow: 0 0 0 3px rgba(79, 127, 120, 0.1);
+}
+
+
+/* =========================================================
+   TABELA DE PROFISSIONAIS
+   ========================================================= */
+
+.tabelaProfissionais {
+    width: 100%;
+    min-width: 1050px;
+
+    border-collapse: collapse;
+
+    background: #ffffff;
+}
+
+.tabelaProfissionais thead {
+    background: #f4f7f6;
+}
+
+.tabelaProfissionais th {
+    padding: 14px 16px;
+
+    border-bottom: 1px solid #e1e8e5;
+
+    color: #6c7b78;
+
+    font-size: 0.69rem;
+    font-weight: 800;
+
+    letter-spacing: 0.06em;
+    text-align: left;
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+.tabelaProfissionais td {
+    padding: 15px 16px;
+
+    border-bottom: 1px solid #edf1ef;
+
+    color: #4f5f5c;
+
+    font-size: 0.82rem;
+    font-weight: 500;
+
+    vertical-align: middle;
+}
+
+.tabelaProfissionais tbody tr {
+    transition: background-color 0.16s ease;
+}
+
+.tabelaProfissionais tbody tr:hover {
+    background: #f9fbfa;
+}
+
+.tabelaProfissionais tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   PROFISSIONAL
+   ========================================================= */
+
+.nomeUsuario {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.avatarProfissional {
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #e8f3ef;
+    color: #315d57;
+
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.usuarioInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    min-width: 0;
+}
+
+.usuarioInfo strong {
+    color: #243331;
+
+    font-size: 0.84rem;
+    font-weight: 750;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.usuarioInfo span {
+    color: #899793;
+
+    font-size: 0.68rem;
+    font-weight: 600;
+}
+
+.emailUsuario {
+    color: #5f706c;
+}
+
+.crpValue {
+    color: #315d57;
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.statusValidado,
+.statusReprovado,
+.statusPendente {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 6px 9px;
+
+    border-radius: 8px;
+
+    font-size: 0.7rem;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+.statusValidado {
+    background: #e8f3ef;
+    color: #315d57;
+}
+
+.statusReprovado {
+    background: rgba(143, 77, 73, 0.1);
+    color: #8f4d49;
+}
+
+.statusPendente {
+    background: #f3eee2;
+    color: #796945;
+}
+
+.statusDot {
+    width: 7px;
+    height: 7px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: currentColor;
+}
+
+
+/* =========================================================
+   AÇÕES
+   ========================================================= */
+
+.acoesAdmin {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.btnValidar,
+.btnHistorico {
+    height: 34px;
+
+    padding: 0 11px;
+
+    border: none;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 0.72rem;
+    font-weight: 750;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.18s ease,
+        color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.btnValidar {
+    background: #315d57;
+    color: #ffffff;
+}
+
+.btnValidar:hover {
+    background: #244c47;
+    transform: translateY(-1px);
+}
+
+.btnHistorico {
+    background: #dcecf2;
+    color: #315d57;
+}
+
+.btnHistorico:hover {
+    background: #cfe4eb;
+    transform: translateY(-1px);
+}
+
+.btnValidar:focus-visible,
+.btnHistorico:focus-visible {
+    outline: 3px solid rgba(79, 127, 120, 0.18);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   MODAIS
+   ========================================================= */
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    background: rgba(20, 32, 29, 0.62);
+
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+}
+
+.modalAdmin {
+    width: min(100%, 520px);
+    max-height: min(720px, calc(100dvh - 48px));
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: #faf9f5;
+
+    border: 1px solid rgba(225, 232, 229, 0.95);
+    border-radius: 24px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.22),
+        0 5px 18px rgba(36, 51, 49, 0.08);
+}
+
+.modalHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 28px 30px 22px;
+
+    border-bottom: 1px solid #e6ece9;
+}
+
+.modalEyebrow {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #4f7f78;
+
+    font-size: 0.67rem;
+    font-weight: 800;
+
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.modalHeader h2 {
+    margin: 0;
+
+    color: #243331;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 1.55rem;
+    font-weight: 600;
+
+    line-height: 1.2;
+}
+
+.modalHeader p {
+    margin: 6px 0 0;
+
+    color: #6c7b78;
+
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.modalClose {
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #edf3f0;
+    color: #5f706c;
+
+    font-size: 1.35rem;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.18s ease,
+        color 0.18s ease;
+}
+
+.modalClose:hover {
+    background: #e1ebe7;
+    color: #315d57;
+}
+
+
+/* =========================================================
+   CONTEÚDO DO MODAL
+   ========================================================= */
+
+.modalContent {
+    padding: 26px 30px;
+
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+    scrollbar-color: #b8c4c1 transparent;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+.formGroup:last-child {
+    margin-bottom: 0;
+}
+
+.formGroup label {
+    color: #315d57;
+
+    font-size: 0.76rem;
+    font-weight: 800;
+
+    letter-spacing: 0.02em;
+}
+
+.modalSelect,
+.modalTextarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid #dce5e2;
+    border-radius: 11px;
+
+    outline: none;
+
+    background: #ffffff;
+    color: #243331;
+
+    font-family: inherit;
+
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.modalSelect {
+    height: 46px;
+    padding: 0 12px;
+
+    font-size: 0.84rem;
+    font-weight: 600;
+}
+
+.modalTextarea {
+    min-height: 130px;
+
+    padding: 13px 14px;
+
+    resize: vertical;
+
+    font-size: 0.85rem;
+    line-height: 1.55;
+}
+
+.modalSelect:focus,
+.modalTextarea:focus {
+    border-color: #4f7f78;
+
+    box-shadow:
+        0 0 0 3px rgba(79, 127, 120, 0.1);
+}
+
+.helperText {
+    color: #879591;
+
+    font-size: 0.72rem;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   AÇÕES DO MODAL
+   ========================================================= */
+
+.modalActions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 9px;
+
+    padding: 18px 30px 24px;
+
+    border-top: 1px solid #e6ece9;
+}
+
+.btnSalvarModal,
+.btnCancelarModal {
+    min-height: 42px;
+
+    padding: 0 16px;
+
+    border: none;
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 750;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.btnSalvarModal {
+    background: #315d57;
+    color: #ffffff;
+}
+
+.btnSalvarModal:hover {
+    background: #244c47;
+    transform: translateY(-1px);
+}
+
+.btnCancelarModal {
+    background: #edf2f0;
+    color: #5f706c;
+}
+
+.btnCancelarModal:hover {
+    background: #e1e9e6;
+}
+
+
+/* =========================================================
+   HISTÓRICO
+   ========================================================= */
+
+.modalHistorico {
+    width: min(100%, 620px);
+}
+
+.historicoContent {
+    min-height: 120px;
+    max-height: 480px;
+
+    padding: 22px 30px;
+
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+    scrollbar-color: #b8c4c1 transparent;
+}
+
+.historicoLista {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.historicoItem {
+    padding: 15px 16px;
+
+    border: 1px solid #e2eae7;
+    border-radius: 13px;
+
+    background: #ffffff;
+}
+
+.historicoTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+.historicoTop strong {
+    color: #687773;
+
+    font-size: 0.73rem;
+    font-weight: 700;
+}
+
+.historicoStatus {
+    padding: 5px 8px;
+
+    border-radius: 7px;
+
+    background: #edf2f0;
+    color: #5f706c;
+
+    font-size: 0.68rem;
+    font-weight: 800;
+
+    text-transform: capitalize;
+}
+
+.historicoStatus_validado {
+    background: #e8f3ef;
+    color: #315d57;
+}
+
+.historicoStatus_revogado {
+    background: rgba(143, 77, 73, 0.1);
+    color: #8f4d49;
+}
+
+.historicoStatus_pendente {
+    background: #f3eee2;
+    color: #796945;
+}
+
+.historicoMotivo {
+    margin-top: 12px;
+    padding-top: 10px;
+
+    border-top: 1px solid #edf1ef;
+}
+
+.historicoMotivo span {
+    color: #879591;
+
+    font-size: 0.67rem;
+    font-weight: 800;
+
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.historicoMotivo p {
+    margin: 5px 0 0;
+
+    color: #4f5f5c;
+
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.emptyHistorico {
+    min-height: 180px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.emptyHistorico strong {
+    margin-top: 12px;
+
+    color: #315d57;
+
+    font-size: 0.95rem;
+}
+
+.emptyHistorico span {
+    max-width: 300px;
+
+    margin-top: 5px;
+
+    color: #7d8b87;
+
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   TABELA VAZIA
+   ========================================================= */
+
+.tabelaVazia {
+    padding: 0 !important;
+}
+
+.emptyState {
+    min-height: 230px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    text-align: center;
+}
+
+.emptyIcon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: #e8f3ef;
+
+    font-size: 1.35rem;
+}
+
+.emptyState strong {
+    margin-top: 13px;
+
+    color: #315d57;
+
+    font-size: 0.95rem;
+}
+
+.emptyState span {
+    max-width: 400px;
+
+    margin-top: 5px;
+
+    color: #7d8b87;
+
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .filtrosAdmin {
+        grid-template-columns: 1fr;
+    }
+
+    .tabelaProfissionais {
+        min-width: 950px;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .filtrosAdmin {
+        gap: 10px;
+    }
+
+    .tabelaProfissionais {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .tabelaProfissionais thead {
+        display: none;
+    }
+
+    .tabelaProfissionais,
+    .tabelaProfissionais tbody,
+    .tabelaProfissionais tr,
+    .tabelaProfissionais td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .tabelaProfissionais tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .tabelaProfissionais tr {
+        padding: 15px;
+
+        border: 1px solid #e1e8e5;
+        border-radius: 16px;
+
+        background: #ffffff;
+        box-shadow: 0 4px 14px rgba(36, 51, 49, 0.05);
+    }
+
+    .tabelaProfissionais td {
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 15px;
+
+        min-height: 42px;
+
+        padding: 9px 0;
+
+        border-bottom: 1px solid #edf1ef;
+
+        text-align: right;
+    }
+
+    .tabelaProfissionais td:last-child {
+        border-bottom: none;
+    }
+
+    .tabelaProfissionais td::before {
+        content: attr(data-label);
+
+        flex-shrink: 0;
+
+        color: #899793;
+
+        font-size: 0.68rem;
+        font-weight: 800;
+
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+
+        text-align: left;
+    }
+
+    .tabelaProfissionais td:first-child {
+        display: block;
+
+        padding-bottom: 13px;
+    }
+
+    .tabelaProfissionais td:first-child::before {
+        display: none;
+    }
+
+    .nomeUsuario {
+        justify-content: flex-start;
+    }
+
+    .acoesAdmin {
+        justify-content: flex-end;
+    }
+
+    .modalOverlay {
+        align-items: center;
+
+        padding: 14px;
+    }
+
+    .modalAdmin {
+        max-height: calc(100dvh - 28px);
+
+        border-radius: 20px;
+    }
+
+    .modalHeader {
+        padding: 23px 20px 18px;
+    }
+
+    .modalHeader h2 {
+        font-size: 1.35rem;
+    }
+
+    .modalContent,
+    .historicoContent {
+        padding: 20px;
+    }
+
+    .modalActions {
+        padding: 15px 20px 20px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .filtroInput,
+    .filtroSelect {
+        height: 44px;
+    }
+
+    .acoesAdmin {
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .btnValidar,
+    .btnHistorico {
+        width: 100%;
+    }
+
+    .modalHeader {
+        gap: 12px;
+    }
+
+    .modalHeader h2 {
+        font-size: 1.2rem;
+    }
+
+    .modalClose {
+        width: 32px;
+        height: 32px;
+    }
+
+    .modalActions {
+        flex-direction: column-reverse;
+    }
+
+    .btnSalvarModal,
+    .btnCancelarModal {
+        width: 100%;
+    }
+
+    .historicoTop {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .tabelaProfissionais tbody tr,
+    .btnValidar,
+    .btnHistorico,
+    .btnSalvarModal,
+    .btnCancelarModal,
+    .filtroInput {
+        transition: none;
+    }
+}

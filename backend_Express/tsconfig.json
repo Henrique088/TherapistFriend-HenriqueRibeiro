@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        /* Type Checking */
+        "strict": true, /* Habilita todas as opções rigorosas de verificação de tipo */
+        "skipLibCheck": true, /* Pula a verificação de tipo de arquivos de declaração (.d.ts) */
+        "noImplicitAny": true, /* Erro ao inferir 'any' sem anotação */
+        "forceConsistentCasingInFileNames": true, /* Garante que a capitalização seja consistente nos nomes dos arquivos */
+        /* Modules */
+        "module": "NodeNext", /* Especifica o sistema de módulo (Node.js usa CommonJS) */
+        "rootDir": "./", /* Especifica a raiz dos arquivos de entrada */
+        "outDir": "./dist", /* Especifica o diretório de saída para arquivos compilados */
+        "moduleResolution": "NodeNext", /* Estratégia para resolver módulos */
+        "esModuleInterop": true, /* Permite a interoperabilidade entre CommonJS e módulos ES */
+        /* Emit */
+        "target": "es2020", /* Especifica a versão do ECMAScript de destino para a compilação */
+        "sourceMap": true, /* Gera arquivos .map para depuração */
+        "allowJs": true, /* Permite a compilação de arquivos JavaScript */
+        "resolveJsonModule": true, /* Inclui módulos JSON */
+        "types": ["node", "jest"], /* Inclui tipos para Node.js e Jest */
+
+        
+    },
+    "include": [
+        "src/**/*",
+        "tests/**/*"
+, "jest.config.js"    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

@@ -1,0 +1,11 @@
+grpcio==1.78.1
+grpcio-tools==1.78.0
+protobuf>=5.26.1
+ultralytics==8.1.0
+opencv-python-headless==4.9.0.80
+torch==2.5.1
+torchvision==0.20.1
+torchaudio==2.5.1
+pandas
+numpy
+scikit-learn

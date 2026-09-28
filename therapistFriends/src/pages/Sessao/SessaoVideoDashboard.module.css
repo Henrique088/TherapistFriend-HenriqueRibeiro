@@ -1,0 +1,1710 @@
+/* =========================================================
+   src/Components/Video/SessaoVideoDashboard.module.css
+========================================================= */
+
+:global(:root) {
+    --tf-video-bg: #172321;
+    --tf-video-surface: #1f2d2a;
+    --tf-video-surface-soft: #243431;
+
+    --tf-primary: #4f7f78;
+    --tf-primary-dark: #315d57;
+    --tf-primary-light: #e8f3ef;
+
+    --tf-blue-light: #dcecf2;
+
+    --tf-text: #f4f7f6;
+    --tf-text-soft: #c0cbc8;
+    --tf-text-muted: #8d9b98;
+
+    --tf-card-bg: #faf9f5;
+    --tf-card-white: #ffffff;
+    --tf-card-text: #243331;
+    --tf-card-text-soft: #4f5f5c;
+    --tf-card-muted: #6c7b78;
+    --tf-card-border: #dfe7e4;
+
+    --tf-danger: #a65d58;
+    --tf-danger-dark: #8f4d49;
+
+    --tf-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+.dashboard,
+.dashboard * {
+    box-sizing: border-box;
+}
+
+.dashboard {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100vh;
+    min-height: 0;
+
+    padding: 16px;
+
+    overflow: hidden;
+
+    background: var(--tf-video-bg);
+    color: var(--tf-text);
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    position: relative;
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    flex-shrink: 0;
+
+    min-height: 68px;
+
+    padding: 11px 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+
+    background: rgba(31, 45, 42, 0.96);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.headerIdentity {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    min-width: 210px;
+}
+
+.brandMark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    border-radius: 11px;
+
+    background: var(--tf-primary);
+
+    color: #ffffff;
+
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+}
+
+.brandText {
+    min-width: 0;
+}
+
+.brandName {
+    display: block;
+
+    color: var(--tf-text);
+
+    font-size: 0.92rem;
+    font-weight: 750;
+}
+
+.sessionLabel {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--tf-text-muted);
+
+    font-size: 0.7rem;
+}
+
+
+/* =========================================================
+   STATUS CENTRAL
+========================================================= */
+
+.headerCenter {
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.connectionStatus {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--tf-text-muted);
+
+    font-size: 0.72rem;
+    font-weight: 750;
+
+    letter-spacing: 0.07em;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+.connectionDot {
+    width: 8px;
+    height: 8px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #66716f;
+}
+
+.connectionLive {
+    color: #c0dcd6;
+}
+
+.connectionLive .connectionDot {
+    background: var(--tf-primary);
+
+    box-shadow:
+        0 0 0 4px rgba(79, 127, 120, 0.14);
+}
+
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.headerActions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    min-width: 210px;
+}
+
+.startButton,
+.finishButton {
+    min-height: 42px;
+
+    padding: 0 17px;
+
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 750;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.startButton {
+    border: 1px solid var(--tf-primary);
+
+    background: var(--tf-primary);
+
+    color: #ffffff;
+}
+
+.startButton:hover:not(:disabled) {
+    background: var(--tf-primary-dark);
+
+    transform: translateY(-1px);
+}
+
+.finishButton {
+    border: 1px solid rgba(166, 93, 88, 0.5);
+
+    background: rgba(166, 93, 88, 0.12);
+
+    color: #ddb0ac;
+}
+
+.finishButton:hover:not(:disabled) {
+    background: rgba(166, 93, 88, 0.2);
+
+    border-color: rgba(166, 93, 88, 0.7);
+}
+
+.startButton:disabled,
+.finishButton:disabled {
+    opacity: 0.45;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   STATUS DO PACIENTE
+========================================================= */
+
+.patientStatus {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+
+    color: var(--tf-text-muted);
+
+    font-size: 0.7rem;
+    font-weight: 750;
+
+    text-transform: uppercase;
+}
+
+.patientStatus > span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #66716f;
+}
+
+.patientStatusLive {
+    border-color: rgba(79, 127, 120, 0.35);
+
+    background: rgba(79, 127, 120, 0.1);
+
+    color: #c0dcd6;
+}
+
+.patientStatusLive > span {
+    background: var(--tf-primary);
+
+    box-shadow:
+        0 0 0 3px rgba(79, 127, 120, 0.12);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(390px, 420px);
+
+    gap: 18px;
+
+    flex: 1;
+
+    min-height: 0;
+
+    margin-top: 14px;
+}
+
+
+/* =========================================================
+   VÍDEO REMOTO
+========================================================= */
+
+.remoteSection {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    min-height: 0;
+}
+
+.remoteHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    flex-shrink: 0;
+
+    min-height: 64px;
+
+    margin-bottom: 10px;
+}
+
+.remoteTitleBlock {
+    min-width: 0;
+}
+
+.sectionEyebrow {
+    display: block;
+
+    color: #9ab9b3;
+
+    font-size: 0.68rem;
+    font-weight: 800;
+
+    letter-spacing: 0.13em;
+
+    text-transform: uppercase;
+}
+
+.remoteHeader h1 {
+    margin: 5px 0 0;
+
+    color: var(--tf-text);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1.55rem;
+    font-weight: 500;
+
+    line-height: 1.15;
+}
+
+.sectionDescription {
+    margin: 5px 0 0;
+
+    color: var(--tf-text-muted);
+
+    font-size: 0.76rem;
+
+    line-height: 1.4;
+}
+
+.emotionBadgeWrapper {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+/* =========================================================
+   VÍDEO
+========================================================= */
+
+.remoteVideo {
+    position: relative;
+
+    flex: 1;
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 20px;
+
+    background: #101817;
+
+    box-shadow: var(--tf-shadow);
+}
+
+.remoteVideo > * {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding-right: 2px;
+
+    scrollbar-width: thin;
+    scrollbar-color:
+        rgba(255, 255, 255, 0.15)
+        transparent;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.14);
+}
+
+
+/* =========================================================
+   CARDS BASE
+========================================================= */
+
+.localCard,
+.analysisCard,
+.privacyCard {
+    width: 100%;
+    min-width: 0;
+
+    border-radius: 18px;
+
+    box-shadow: var(--tf-shadow);
+}
+
+
+/* =========================================================
+   PRÉVIA LOCAL
+========================================================= */
+
+.localCard {
+    flex-shrink: 0;
+
+    padding: 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    background: var(--tf-video-surface);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 12px;
+}
+
+.cardEyebrow {
+    display: block;
+
+    color: #91a29f;
+
+    font-size: 0.62rem;
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+}
+
+.cardHeader h2 {
+    margin: 4px 0 0;
+
+    color: var(--tf-text);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1.15rem;
+    font-weight: 500;
+
+    line-height: 1.25;
+}
+
+.localStatus {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    flex-shrink: 0;
+
+    color: #b7c5c1;
+
+    font-size: 0.68rem;
+    font-weight: 650;
+}
+
+.localStatus > span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--tf-primary);
+}
+
+
+/* =========================================================
+   VÍDEO LOCAL
+========================================================= */
+
+.localVideo {
+    position: relative;
+
+    width: 100%;
+
+    height: 190px;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background: #111817;
+}
+
+.localVideo > * {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =========================================================
+   CÂMERA DESLIGADA
+========================================================= */
+
+.cameraOffOverlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    background: #202c2a;
+
+    color: var(--tf-text-soft);
+
+    text-align: center;
+}
+
+.cameraOffIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 5px;
+
+    border-radius: 50%;
+
+    background: rgba(220, 236, 242, 0.08);
+
+    color: #a0b3b0;
+
+    font-size: 1.05rem;
+}
+
+.cameraOffOverlay strong {
+    color: var(--tf-text);
+
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.cameraOffOverlay span {
+    color: #98a7a4;
+
+    font-size: 0.7rem;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   CONTROLES LOCAIS
+========================================================= */
+
+.localControls {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+    margin-top: 10px;
+}
+
+.smallControl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    min-width: 0;
+    min-height: 40px;
+
+    padding: 0 9px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    color: #c5cfcd;
+
+    font-family: inherit;
+
+    font-size: 0.68rem;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.smallControl svg {
+    flex-shrink: 0;
+
+    width: 15px;
+    height: 15px;
+}
+
+.smallControl:hover {
+    background: rgba(255, 255, 255, 0.09);
+
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+.smallControlOff {
+    border-color: rgba(166, 93, 88, 0.35);
+
+    background: rgba(166, 93, 88, 0.1);
+
+    color: #d8aaa5;
+}
+
+
+/* =========================================================
+   ANÁLISE EMOCIONAL
+========================================================= */
+
+.analysisCard {
+    flex-shrink: 0;
+
+    padding: 24px;
+
+    border: 1px solid var(--tf-card-border);
+
+    background: var(--tf-card-bg);
+
+    color: var(--tf-card-text);
+
+    box-shadow:
+        0 8px 28px rgba(36, 51, 49, 0.12);
+}
+
+.analysisHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    margin-bottom: 20px;
+}
+
+.analysisEyebrow {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--tf-primary-dark);
+
+    font-size: 0.7rem;
+    font-weight: 850;
+
+    letter-spacing: 0.13em;
+
+    line-height: 1.2;
+}
+
+.analysisHeader h2 {
+    margin: 0;
+
+    color: var(--tf-card-text);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    line-height: 1.2;
+}
+
+.analysisIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    flex: 0 0 46px;
+
+    border: 1px solid #cfe1dc;
+
+    border-radius: 13px;
+
+    background: var(--tf-primary-light);
+
+    color: var(--tf-primary-dark);
+}
+
+.analysisIcon svg {
+    width: 21px;
+    height: 21px;
+}
+
+
+/* =========================================================
+   RESULTADO DA EMOÇÃO
+========================================================= */
+
+.emotionResult {
+    width: 100%;
+    min-width: 0;
+
+    padding: 22px;
+
+    border: 1px solid #dfe7e4;
+
+    border-radius: 16px;
+
+    background: #ffffff;
+}
+
+.emotionLabel {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: var(--tf-card-muted);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+.emotionName {
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+
+    color: var(--tf-primary-dark);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(1.8rem, 3vw, 2.25rem);
+
+    font-weight: 700;
+
+    line-height: 1.15;
+
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   CONFIANÇA
+========================================================= */
+
+.confidenceRow {
+    width: 100%;
+
+    margin-top: 25px;
+}
+
+.confidenceInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 9px;
+}
+
+.confidenceInfo span {
+    color: #5f6f6b;
+
+    font-size: 0.8rem;
+    font-weight: 650;
+
+    line-height: 1.3;
+}
+
+.confidenceInfo strong {
+    flex-shrink: 0;
+
+    color: var(--tf-primary-dark);
+
+    font-size: 0.95rem;
+    font-weight: 850;
+}
+
+.confidenceBar {
+    width: 100%;
+    height: 9px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background: #dfe8e5;
+}
+
+.confidenceProgress {
+    height: 100%;
+
+    min-width: 4px;
+
+    border-radius: inherit;
+
+    background: var(--tf-primary);
+
+    transition: width 0.45s ease;
+}
+
+
+/* =========================================================
+   AVISO DA ANÁLISE
+========================================================= */
+
+.analysisNotice {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin-top: 14px;
+
+    padding: 14px 15px;
+
+    border: 1px solid #d9e5e1;
+
+    border-radius: 12px;
+
+    background: #f0f5f3;
+}
+
+.analysisNotice > svg {
+    flex-shrink: 0;
+
+    width: 17px;
+    height: 17px;
+
+    margin-top: 2px;
+
+    color: var(--tf-primary-dark);
+}
+
+.analysisNotice p {
+    margin: 0;
+
+    color: #4f5f5c;
+
+    font-size: 0.78rem;
+    font-weight: 550;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   ERRO DA IA
+========================================================= */
+
+.analysisError {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding: 16px;
+
+    border: 1px solid #ead4d1;
+
+    border-radius: 14px;
+
+    background: #fbf1f0;
+
+    color: #713e3a;
+}
+
+.analysisErrorIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    flex: 0 0 38px;
+
+    border-radius: 10px;
+
+    background: #f4dfdc;
+
+    color: var(--tf-danger-dark);
+}
+
+.analysisErrorIcon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.analysisError > div:last-child {
+    min-width: 0;
+}
+
+.analysisError strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #713e3a;
+
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+.analysisError span {
+    display: block;
+
+    color: #80514d;
+
+    font-size: 0.78rem;
+
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   AGUARDANDO ANÁLISE
+========================================================= */
+
+.analysisWaiting {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 205px;
+
+    padding: 24px;
+
+    border: 1px dashed #cbdad5;
+
+    border-radius: 16px;
+
+    background: #f3f7f5;
+
+    text-align: center;
+}
+
+.waitingIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 54px;
+    height: 54px;
+
+    margin-bottom: 14px;
+
+    border-radius: 15px;
+
+    background: var(--tf-primary-light);
+
+    color: var(--tf-primary-dark);
+}
+
+.waitingIcon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.analysisWaiting strong {
+    color: var(--tf-card-text);
+
+    font-size: 1rem;
+    font-weight: 750;
+}
+
+.analysisWaiting > span {
+    max-width: 270px;
+
+    margin-top: 7px;
+
+    color: var(--tf-card-muted);
+
+    font-size: 0.82rem;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   PRIVACIDADE
+========================================================= */
+
+.privacyCard {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 14px;
+
+    flex-shrink: 0;
+
+    padding: 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    background: var(--tf-video-surface);
+}
+
+.privacyIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    flex: 0 0 44px;
+
+    border-radius: 12px;
+
+    background: rgba(220, 236, 242, 0.08);
+
+    color: #a8bdb9;
+}
+
+.privacyIcon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.privacyContent {
+    min-width: 0;
+}
+
+.privacyContent > span {
+    color: #91a29f;
+
+    font-size: 0.62rem;
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+}
+
+.privacyContent h2 {
+    margin: 5px 0 8px;
+
+    color: var(--tf-text);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1.1rem;
+    font-weight: 500;
+
+    line-height: 1.3;
+}
+
+.privacyContent p {
+    margin: 0;
+
+    color: var(--tf-text-muted);
+
+    font-size: 0.72rem;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   CONTROLES FLUTUANTES
+========================================================= */
+
+.controlsWrapper {
+    position: fixed;
+
+    left: 50%;
+    bottom: 14px;
+
+    z-index: 100;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    width: 190px;
+    height: 76px;
+
+    transform: translateX(-50%);
+
+    cursor: pointer;
+}
+
+.controlsTrigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 50%;
+
+    background: rgba(23, 35, 33, 0.94);
+
+    color: #a7b6b3;
+
+    font-size: 0.85rem;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(12px);
+
+    animation: bounce 2s infinite;
+}
+
+.controlsBar {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.11);
+
+    border-radius: 16px;
+
+    background: rgba(23, 35, 33, 0.97);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.3);
+
+    backdrop-filter: blur(16px);
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.controlsVisible .controlsBar {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+}
+
+.controlButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    color: #d8dfdd;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.controlButton:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+
+    transform: translateY(-1px);
+}
+
+.controlOff {
+    border-color: rgba(166, 93, 88, 0.3);
+
+    background: rgba(166, 93, 88, 0.2);
+
+    color: #d8aaa5;
+}
+
+.endCallButton {
+    width: 50px;
+
+    border-color: rgba(166, 93, 88, 0.35);
+
+    background: var(--tf-danger);
+
+    color: #ffffff;
+}
+
+.endCallButton:hover:not(:disabled) {
+    background: var(--tf-danger-dark);
+}
+
+.controlButton:disabled {
+    opacity: 0.45;
+
+    cursor: not-allowed;
+}
+
+.controlsDivider {
+    width: 1px;
+    height: 26px;
+
+    margin: 0 2px;
+
+    background: rgba(255, 255, 255, 0.09);
+}
+
+
+/* =========================================================
+   ANIMAÇÃO
+========================================================= */
+
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-4px);
+    }
+
+    60% {
+        transform: translateY(-2px);
+    }
+}
+
+
+/* =========================================================
+   1100px
+========================================================= */
+
+@media (max-width: 1100px) {
+    .main {
+        grid-template-columns:
+            minmax(0, 1fr)
+            360px;
+    }
+
+    .localVideo {
+        height: 170px;
+    }
+
+    .analysisCard {
+        padding: 20px;
+    }
+
+    .emotionResult {
+        padding: 19px;
+    }
+
+    .emotionName {
+        font-size: 1.8rem;
+    }
+}
+
+
+/* =========================================================
+   900px
+========================================================= */
+
+@media (max-width: 900px) {
+    .dashboard {
+        height: auto;
+        min-height: 100vh;
+
+        overflow-y: auto;
+    }
+
+    .headerCenter {
+        position: static;
+
+        transform: none;
+    }
+
+    .main {
+        grid-template-columns: 1fr;
+
+        min-height: auto;
+    }
+
+    .remoteSection {
+        min-height: 60vh;
+    }
+
+    .sidebar {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        min-height: 0;
+
+        overflow: visible;
+    }
+
+    .localCard,
+    .analysisCard,
+    .privacyCard {
+        min-width: 0;
+    }
+
+    .localVideo {
+        height: 190px;
+    }
+
+    .analysisCard {
+        min-height: 0;
+    }
+}
+
+
+/* =========================================================
+   680px
+========================================================= */
+
+@media (max-width: 680px) {
+    .dashboard {
+        padding: 10px;
+    }
+
+    .header {
+        flex-wrap: wrap;
+
+        gap: 10px;
+
+        padding: 11px 13px;
+
+        border-radius: 14px;
+    }
+
+    .headerIdentity {
+        min-width: auto;
+    }
+
+    .headerCenter {
+        order: 3;
+
+        width: 100%;
+
+        padding-top: 9px;
+
+        border-top:
+            1px solid rgba(255, 255, 255, 0.06);
+
+        text-align: center;
+    }
+
+    .connectionStatus {
+        justify-content: center;
+
+        font-size: 0.65rem;
+    }
+
+    .headerActions {
+        min-width: auto;
+    }
+
+    .startButton,
+    .finishButton {
+        min-height: 37px;
+
+        padding: 0 11px;
+
+        font-size: 0.68rem;
+    }
+
+    .main {
+        gap: 12px;
+
+        margin-top: 10px;
+    }
+
+    .remoteHeader {
+        align-items: flex-start;
+
+        margin-bottom: 8px;
+    }
+
+    .remoteHeader h1 {
+        font-size: 1.25rem;
+    }
+
+    .sectionDescription {
+        font-size: 0.69rem;
+    }
+
+    .remoteVideo {
+        min-height: 58vw;
+
+        border-radius: 16px;
+    }
+
+    .emotionBadgeWrapper {
+        max-width: 45%;
+    }
+
+    .sidebar {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 11px;
+    }
+
+    .localCard,
+    .analysisCard,
+    .privacyCard {
+        border-radius: 15px;
+    }
+
+    .localVideo {
+        height: 200px;
+    }
+
+    .analysisCard {
+        padding: 20px;
+    }
+
+    .analysisHeader {
+        margin-bottom: 17px;
+    }
+
+    .analysisHeader h2 {
+        font-size: 1.35rem;
+    }
+
+    .emotionResult {
+        padding: 19px;
+    }
+
+    .emotionName {
+        font-size: 1.75rem;
+    }
+
+    .analysisWaiting {
+        min-height: 185px;
+    }
+
+    .controlsWrapper {
+        bottom: 8px;
+    }
+}
+
+
+/* =========================================================
+   460px
+========================================================= */
+
+@media (max-width: 460px) {
+    .brandName {
+        font-size: 0.8rem;
+    }
+
+    .sessionLabel {
+        font-size: 0.61rem;
+    }
+
+    .brandMark {
+        width: 33px;
+        height: 33px;
+
+        border-radius: 9px;
+
+        font-size: 0.62rem;
+    }
+
+    .patientStatus {
+        padding: 7px 9px;
+
+        font-size: 0.56rem;
+    }
+
+    .remoteVideo {
+        min-height: 62vw;
+    }
+
+    .remoteHeader {
+        gap: 10px;
+    }
+
+    .remoteHeader h1 {
+        font-size: 1.12rem;
+    }
+
+    .sectionDescription {
+        font-size: 0.64rem;
+    }
+
+    .emotionBadgeWrapper {
+        max-width: 42%;
+    }
+
+    .localControls {
+        grid-template-columns: 1fr;
+    }
+
+    .smallControl {
+        min-height: 38px;
+    }
+
+    .analysisCard {
+        padding: 17px;
+    }
+
+    .analysisHeader h2 {
+        font-size: 1.25rem;
+    }
+
+    .analysisIcon {
+        width: 40px;
+        height: 40px;
+
+        flex-basis: 40px;
+    }
+
+    .emotionResult {
+        padding: 17px;
+    }
+
+    .emotionName {
+        font-size: 1.6rem;
+    }
+
+    .confidenceRow {
+        margin-top: 21px;
+    }
+
+    .analysisNotice {
+        padding: 12px;
+    }
+
+    .analysisNotice p {
+        font-size: 0.73rem;
+    }
+
+    .privacyCard {
+        padding: 17px;
+    }
+
+    .controlButton {
+        width: 40px;
+        height: 40px;
+    }
+
+    .endCallButton {
+        width: 46px;
+    }
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .controlsTrigger {
+        animation: none;
+    }
+
+    .controlsBar,
+    .controlButton,
+    .confidenceProgress {
+        transition: none;
+    }
+}

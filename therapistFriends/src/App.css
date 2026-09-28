@@ -1,0 +1,53 @@
+/* From Uiverse.io by necatimertmetin */ 
+.z {
+  position: absolute;
+  font-size: 32px;
+  opacity: 0;
+}
+.z-1 {
+  animation: swayUpToRight 2s ease-out infinite;
+}
+.z-2 {
+  animation: swayUpToRight 2s ease-out 0.5s infinite;
+}
+.z-3 {
+  animation: swayUpToRight 2s ease-out 1s infinite;
+}
+.z-4 {
+  animation: swayUpToRight 2s ease-out 1.5s infinite;
+}
+@keyframes swayUpToRight {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(80px, -100px) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+
+@import 'react-toastify/dist/ReactToastify.css';
+
+:root {
+  /* ============================================================
+     TOASTIFY — TherapistFriend
+     ============================================================ */
+
+  /* Tipos de Toast */
+  --toastify-color-success: #4F7F78; /* Verde principal */
+  --toastify-color-error: #B85C5C;   /* Vermelho suave */
+  --toastify-color-warning: #B58A45; /* Dourado suave */
+  --toastify-color-info: #5E8190;    /* Azul acinzentado */
+
+  /* Fundo e texto */
+  --toastify-toast-background: #FFFFFF;
+  --toastify-text-color-light: #243331;
+
+  /* Barras de progresso */
+  --toastify-color-progress-success: #4F7F78;
+  --toastify-color-progress-error: #B85C5C;
+  --toastify-color-progress-warning: #B58A45;
+  --toastify-color-progress-info: #5E8190;
+}

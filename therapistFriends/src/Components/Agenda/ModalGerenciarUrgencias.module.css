@@ -1,0 +1,702 @@
+:global(:root) {
+    --tf-bg: #faf9f5;
+    --tf-card: #ffffff;
+
+    --tf-primary: #4f7f78;
+    --tf-primary-dark: #315d57;
+    --tf-primary-light: #e8f3ef;
+
+    --tf-blue-light: #dcecf2;
+
+    --tf-text: #243331;
+    --tf-text-soft: #6c7b78;
+
+    --tf-border: #e1e8e5;
+
+    --tf-warning: #a87535;
+    --tf-warning-light: #f8f0e3;
+
+    --tf-danger: #a65d58;
+    --tf-danger-light: #f8ecea;
+
+    --tf-shadow: 0 20px 55px rgba(36, 51, 49, 0.16);
+}
+
+.modal,
+.modal * {
+    box-sizing: border-box;
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 1100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(36, 51, 49, 0.46);
+
+    backdrop-filter: blur(5px);
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    position: relative;
+
+    width: min(100%, 680px);
+    max-height: calc(100vh - 40px);
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 0;
+
+    background: var(--tf-card);
+
+    border: 1px solid var(--tf-border);
+    border-radius: 24px;
+
+    outline: none;
+
+    box-shadow: var(--tf-shadow);
+
+    overflow: hidden;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+
+    padding: 28px 30px 23px;
+
+    border-bottom: 1px solid var(--tf-border);
+}
+
+.headerIcon {
+    flex: 0 0 44px;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: var(--tf-warning-light);
+    color: var(--tf-warning);
+
+    font-size: 19px;
+}
+
+.headerText {
+    min-width: 0;
+}
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--tf-warning);
+
+    font-size: 0.67rem;
+    font-weight: 800;
+
+    letter-spacing: 0.13em;
+}
+
+.headerText h2 {
+    margin: 0;
+
+    color: var(--tf-text);
+
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+.headerText p {
+    max-width: 500px;
+
+    margin: 7px 0 0;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.87rem;
+    line-height: 1.5;
+}
+
+.closeButton {
+    flex: 0 0 auto;
+
+    width: 36px;
+    height: 36px;
+
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--tf-border);
+    border-radius: 10px;
+
+    background: transparent;
+    color: var(--tf-text-soft);
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.closeButton:hover {
+    background: var(--tf-bg);
+    color: var(--tf-text);
+}
+
+/* =========================
+   INFO
+========================= */
+
+.info {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    margin: 20px 30px 4px;
+    padding: 12px 14px;
+
+    border-radius: 12px;
+
+    background: var(--tf-blue-light);
+
+    color: var(--tf-primary-dark);
+
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+.info svg {
+    flex: 0 0 auto;
+
+    margin-top: 2px;
+
+    font-size: 14px;
+}
+
+/* =========================
+   LISTA
+========================= */
+
+.lista {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    padding: 18px 30px 22px;
+
+    overflow-y: auto;
+}
+
+/* =========================
+   CARD DE URGÊNCIA
+========================= */
+
+.urgencia {
+    padding: 18px;
+
+    border: 1px solid var(--tf-border);
+    border-left: 3px solid var(--tf-warning);
+
+    border-radius: 15px;
+
+    background: #fdfdfb;
+
+    transition:
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.urgencia:hover {
+    border-color: #d7dfdc;
+
+    box-shadow: 0 7px 20px rgba(36, 51, 49, 0.06);
+}
+
+/* =========================
+   PACIENTE
+========================= */
+
+.urgenciaHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid var(--tf-border);
+}
+
+.paciente {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    min-width: 0;
+}
+
+.avatar {
+    flex: 0 0 auto;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: var(--tf-primary-light);
+    color: var(--tf-primary);
+
+    font-size: 16px;
+}
+
+.paciente > div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    min-width: 0;
+}
+
+.label {
+    color: var(--tf-text-soft);
+
+    font-size: 0.66rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.paciente strong {
+    color: var(--tf-text);
+
+    font-size: 0.91rem;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    flex: 0 0 auto;
+
+    padding: 6px 9px;
+
+    border: 1px solid #eadfce;
+    border-radius: 999px;
+
+    background: var(--tf-warning-light);
+    color: var(--tf-warning);
+
+    font-size: 0.68rem;
+    font-weight: 750;
+}
+
+.badge svg {
+    font-size: 11px;
+}
+
+/* =========================
+   DETALHES
+========================= */
+
+.detalhes {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 180px;
+    gap: 14px;
+
+    padding: 16px 0;
+}
+
+.detalhe {
+    min-width: 0;
+}
+
+.detalheLabel {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.67rem;
+    font-weight: 750;
+
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.motivo {
+    margin: 0;
+
+    color: var(--tf-text);
+
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.janela {
+    min-height: 38px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 0 11px;
+
+    border: 1px solid var(--tf-border);
+    border-radius: 9px;
+
+    background: white;
+
+    color: var(--tf-primary-dark);
+
+    font-size: 0.77rem;
+    font-weight: 650;
+}
+
+.janela svg {
+    font-size: 13px;
+}
+
+/* =========================
+   AÇÕES
+========================= */
+
+.acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 9px;
+
+    padding-top: 14px;
+
+    border-top: 1px solid var(--tf-border);
+}
+
+.aprovar,
+.rejeitar {
+    min-height: 40px;
+
+    padding: 0 14px;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+    font-size: 0.76rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.aprovar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    border: 1px solid var(--tf-primary);
+
+    background: var(--tf-primary);
+    color: white;
+}
+
+.aprovar:hover:not(:disabled) {
+    background: var(--tf-primary-dark);
+    border-color: var(--tf-primary-dark);
+
+    transform: translateY(-1px);
+}
+
+.aprovar svg {
+    font-size: 15px;
+}
+
+.rejeitar {
+    border: 1px solid #ead5d2;
+
+    background: white;
+    color: var(--tf-danger);
+}
+
+.rejeitar:hover:not(:disabled) {
+    background: var(--tf-danger-light);
+    border-color: #dfbfbb;
+}
+
+.aprovar:disabled,
+.rejeitar:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.emptyState {
+    padding: 45px 30px;
+
+    text-align: center;
+}
+
+.emptyIcon {
+    width: 52px;
+    height: 52px;
+
+    margin: 0 auto 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: var(--tf-primary-light);
+    color: var(--tf-primary);
+
+    font-size: 21px;
+}
+
+.emptyState h3 {
+    margin: 0 0 6px;
+
+    color: var(--tf-text);
+
+    font-size: 0.98rem;
+}
+
+.emptyState p {
+    max-width: 380px;
+
+    margin: 0 auto;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+
+    padding: 17px 30px;
+
+    border-top: 1px solid var(--tf-border);
+
+    background: #fcfcfa;
+}
+
+.fechar {
+    min-width: 100px;
+    min-height: 41px;
+
+    padding: 0 17px;
+
+    border: 1px solid var(--tf-border);
+    border-radius: 10px;
+
+    background: white;
+    color: var(--tf-text-soft);
+
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.fechar:hover {
+    background: var(--tf-bg);
+    color: var(--tf-text);
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+.lista::-webkit-scrollbar {
+    width: 5px;
+}
+
+.lista::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.lista::-webkit-scrollbar-thumb {
+    background: #ccd7d3;
+    border-radius: 999px;
+}
+
+.lista::-webkit-scrollbar-thumb:hover {
+    background: #b5c4bf;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 650px) {
+    .overlay {
+        padding: 12px;
+    }
+
+    .modal {
+        max-height: calc(100vh - 24px);
+        border-radius: 20px;
+    }
+
+    .header {
+        padding: 22px 20px 18px;
+    }
+
+    .headerIcon {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+    }
+
+    .headerText h2 {
+        font-size: 1.3rem;
+    }
+
+    .info {
+        margin: 16px 20px 4px;
+    }
+
+    .lista {
+        padding: 16px 20px 20px;
+    }
+
+    .detalhes {
+        grid-template-columns: 1fr;
+    }
+
+    .acoes {
+        flex-direction: column-reverse;
+    }
+
+    .aprovar,
+    .rejeitar {
+        width: 100%;
+    }
+
+    .footer {
+        padding: 15px 20px;
+    }
+
+    .fechar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    .headerIcon {
+        display: none;
+    }
+
+    .header {
+        gap: 10px;
+    }
+
+    .headerText h2 {
+        font-size: 1.22rem;
+    }
+
+    .urgencia {
+        padding: 15px;
+    }
+
+    .urgenciaHeader {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .badge {
+        align-self: flex-start;
+    }
+
+    .paciente strong {
+        max-width: 180px;
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .modal {
+        max-height: calc(100vh - 20px);
+    }
+
+    .header {
+        padding: 16px 22px;
+    }
+
+    .info {
+        margin-top: 12px;
+    }
+
+    .lista {
+        padding: 12px 22px;
+    }
+
+    .footer {
+        padding: 11px 22px;
+    }
+}

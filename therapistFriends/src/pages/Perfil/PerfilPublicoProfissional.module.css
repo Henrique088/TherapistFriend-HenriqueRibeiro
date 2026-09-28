@@ -1,0 +1,623 @@
+:global(:root) {
+    --tf-bg: #faf9f5;
+    --tf-card: #ffffff;
+
+    --tf-primary: #4f7f78;
+    --tf-primary-dark: #315d57;
+    --tf-primary-light: #e8f3ef;
+
+    --tf-blue-light: #dcecf2;
+
+    --tf-text: #243331;
+    --tf-text-soft: #6c7b78;
+
+    --tf-border: #e1e8e5;
+
+    --tf-star: #d5a84a;
+
+    --tf-shadow: 0 6px 18px rgba(36, 51, 49, 0.06);
+    --tf-shadow-hover: 0 10px 28px rgba(36, 51, 49, 0.09);
+}
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.perfilPublicoContainer {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: var(--tf-bg);
+}
+
+.perfilPublicoConteudo {
+    flex: 1;
+    /* Removido o width: 100% para o flex-box calcular a largura restante corretamente */
+    min-width: 0; 
+    height: 100%;
+    padding: 34px 38px 50px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    width: 100%;
+    height: 100vh;
+
+    background: var(--tf-bg);
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.9rem;
+}
+
+.loadingSpinner {
+    width: 34px;
+    height: 34px;
+
+    border: 3px solid var(--tf-primary-light);
+    border-top-color: var(--tf-primary);
+
+    border-radius: 50%;
+
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================================
+   HEADER DO PERFIL
+========================================================= */
+
+.perfilHeaderCard {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 24px;
+
+    width: 100%;
+
+    max-width: 1100px; /* Limita para não esticar demais em telas ultrawide */
+    box-sizing: border-box;
+
+    margin-bottom: 22px;
+    padding: 28px;
+
+    background: var(--tf-card);
+
+    border: 1px solid var(--tf-border);
+    border-radius: 20px;
+
+    box-shadow: var(--tf-shadow);
+}
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+.avatarGrande {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 88px;
+    height: 88px;
+
+    border-radius: 50%;
+
+    background: var(--tf-primary-light);
+
+    color: var(--tf-primary-dark);
+
+    border: 5px solid #ffffff;
+
+    box-shadow:
+        0 0 0 1px var(--tf-border),
+        0 6px 16px rgba(79, 127, 120, 0.12);
+
+    font-size: 1.65rem;
+    font-weight: 700;
+}
+
+/* =========================================================
+   INFORMAÇÕES
+========================================================= */
+
+.perfilInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.nomeValidacao {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 11px;
+}
+
+.nomeValidacao h1 {
+    margin: 0;
+
+    color: var(--tf-text);
+
+    font-family: Georgia, 'Times New Roman', serif;
+
+    font-size: clamp(1.55rem, 2.5vw, 2rem);
+    font-weight: 600;
+
+    line-height: 1.25;
+}
+
+.seloValidado {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 5px 9px;
+
+    border-radius: 999px;
+
+    background: var(--tf-primary-light);
+
+    color: var(--tf-primary-dark);
+
+    font-size: 0.73rem;
+    font-weight: 700;
+}
+
+.check {
+    font-size: 0.78rem;
+}
+
+/* =========================================================
+   ESPECIALIDADES
+========================================================= */
+
+.especialidadesBadges {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-top: 12px;
+}
+
+.badgeEsp {
+    padding: 5px 10px;
+
+    border: 1px solid #d3e5e1;
+    border-radius: 999px;
+
+    background: #f3f8f6;
+
+    color: var(--tf-primary-dark);
+
+    font-size: 0.76rem;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.badgeEsp:hover {
+    background: var(--tf-primary-light);
+    border-color: #bdd8d2;
+}
+
+/* =========================================================
+   CRP
+========================================================= */
+
+.crpInfo {
+    margin: 12px 0 0;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.8rem;
+}
+
+/* =========================================================
+   AVALIAÇÃO
+========================================================= */
+
+.notaMediaContainer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 12px;
+}
+
+.starsRow {
+    display: flex;
+    align-items: center;
+
+    gap: 3px;
+}
+
+.starFilled {
+    color: var(--tf-star);
+
+    font-size: 1rem;
+}
+
+.starEmpty {
+    color: #d9e0df;
+
+    font-size: 1rem;
+}
+
+.totalAv {
+    color: var(--tf-text-soft);
+
+    font-size: 0.8rem;
+}
+
+/* =========================================================
+   BOTÕES
+========================================================= */
+
+.botoes {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 19px;
+}
+
+.btnMensagem,
+.btnAgendar {
+    min-height: 42px;
+
+    padding: 10px 17px;
+
+    border-radius: 10px;
+
+    font-size: 0.84rem;
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* Conversa ainda indisponível */
+
+.btnMensagem.disabled {
+    border: 1px solid var(--tf-border);
+
+    background: #f2f4f3;
+
+    color: #9aa5a3;
+
+    cursor: not-allowed;
+}
+
+/* Agendamento */
+
+.btnAgendar {
+    border: 1px solid var(--tf-primary);
+
+    background: var(--tf-primary);
+
+    color: #ffffff;
+
+    cursor: pointer;
+}
+
+.btnAgendar:hover {
+    background: var(--tf-primary-dark);
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 6px 14px rgba(79, 127, 120, 0.2);
+}
+
+.btnAgendar:active {
+    transform: translateY(0);
+}
+
+.hintMsg {
+    display: block;
+
+    margin-top: 7px;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.72rem;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card {
+    width: 100%;
+
+    margin-bottom: 20px;
+    padding: 24px;
+
+    background: var(--tf-card);
+
+    max-width: 1100px; /* Limita para não esticar demais em telas ultrawide */
+    box-sizing: border-box;
+
+    border: 1px solid var(--tf-border);
+    border-radius: 18px;
+
+    box-shadow: var(--tf-shadow);
+}
+
+.cardHeader {
+    margin-bottom: 17px;
+}
+
+.cardEyebrow {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--tf-primary);
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.card h2 {
+    margin: 0;
+
+    color: var(--tf-text);
+
+    font-family: Georgia, 'Times New Roman', serif;
+
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.bio {
+    margin: 0;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.93rem;
+    line-height: 1.75;
+
+    white-space: pre-wrap;
+}
+
+/* =========================================================
+   AVALIAÇÕES
+========================================================= */
+
+.avaliacoesLista {
+    display: flex;
+    flex-direction: column;
+}
+
+.avaliacaoItem {
+    padding: 17px 0;
+
+    border-top: 1px solid var(--tf-border);
+}
+
+.avaliacaoItem:first-child {
+    padding-top: 3px;
+    border-top: none;
+}
+
+.avaliacaoTopo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.nomePaciente {
+    color: var(--tf-text);
+
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.starsMini {
+    display: flex;
+    align-items: center;
+
+    gap: 2px;
+}
+
+.starsMini .starFilled,
+.starsMini .starEmpty {
+    font-size: 0.78rem;
+}
+
+.comentario {
+    margin: 8px 0;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.88rem;
+    line-height: 1.6;
+
+    white-space: pre-wrap;
+}
+
+.dataAv {
+    color: #9aa5a3;
+
+    font-size: 0.72rem;
+}
+
+/* =========================================================
+   SEM AVALIAÇÕES
+========================================================= */
+
+.semAvaliacoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 150px;
+
+    color: var(--tf-text-soft);
+
+    text-align: center;
+}
+
+.emptyRatingIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    margin-bottom: 10px;
+
+    border-radius: 50%;
+
+    background: var(--tf-primary-light);
+
+    color: var(--tf-primary);
+
+    font-size: 1.1rem;
+}
+
+.semAvaliacoes p {
+    margin: 0;
+
+    font-size: 0.85rem;
+}
+
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 1024px) {
+    .perfilPublicoConteudo {
+        padding: 80px 24px 35px;
+    }
+}
+
+@media (max-width: 700px) {
+    .perfilPublicoConteudo {
+        padding: 78px 18px 32px;
+    }
+
+    .perfilHeaderCard {
+        flex-direction: column;
+        align-items: center;
+
+        padding: 24px 20px;
+
+        text-align: center;
+    }
+
+    .perfilInfo {
+        width: 100%;
+    }
+
+    .nomeValidacao {
+        justify-content: center;
+    }
+
+    .especialidadesBadges {
+        justify-content: center;
+    }
+
+    .notaMediaContainer {
+        justify-content: center;
+    }
+
+    .botoes {
+        justify-content: center;
+    }
+
+    .hintMsg {
+        text-align: center;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 520px) {
+    .perfilPublicoConteudo {
+        padding: 74px 16px 30px;
+    }
+
+    .avatarGrande {
+        width: 76px;
+        height: 76px;
+
+        font-size: 1.4rem;
+    }
+
+    .perfilHeaderCard {
+        padding: 21px 16px;
+        border-radius: 17px;
+    }
+
+    .nomeValidacao h1 {
+        font-size: 1.45rem;
+    }
+
+    .botoes {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btnMensagem,
+    .btnAgendar {
+        width: 100%;
+    }
+
+    .avaliacaoTopo {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 6px;
+    }
+
+    .card {
+        padding: 18px;
+        border-radius: 16px;
+    }
+}

@@ -1,0 +1,12 @@
+__pycache__
+*.pyc
+venv
+.venv
+.env
+.git
+.cache
+*.bin
+*.safetensors
+*.pt
+*.onnx
+.pytest_cache

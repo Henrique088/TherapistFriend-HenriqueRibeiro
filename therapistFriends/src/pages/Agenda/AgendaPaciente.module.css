@@ -1,0 +1,750 @@
+:global(:root) {
+    --tf-bg: #faf9f5;
+    --tf-card: #ffffff;
+
+    --tf-primary: #4f7f78;
+    --tf-primary-dark: #315d57;
+    --tf-primary-light: #e8f3ef;
+
+    --tf-blue-light: #dcecf2;
+
+    --tf-text: #243331;
+    --tf-text-soft: #6c7b78;
+
+    --tf-border: #e1e8e5;
+
+    --tf-shadow:
+        0 6px 20px rgba(36, 51, 49, 0.05);
+}
+
+
+/* =====================================================
+   ESTRUTURA
+===================================================== */
+
+.containerAgenda {
+    display: flex;
+
+    width: 100%;
+    min-width: 0;
+    height: 100vh;
+
+    background: var(--tf-bg);
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+.conteudoAgenda {
+    flex: 1 1 0;
+
+    width: 100%;
+    min-width: 0;
+    height: 100vh;
+
+    padding: 34px 38px 38px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.topoAgenda {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    margin-bottom: 24px;
+
+    gap: 24px;
+}
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--tf-primary);
+
+    font-size: 0.7rem;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.tituloLinha {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+.iconeTitulo {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background: var(--tf-primary-light);
+
+    color: var(--tf-primary-dark);
+
+    font-size: 20px;
+}
+
+.tituloLinha h1 {
+    margin: 0;
+
+    color: var(--tf-text);
+
+    font-family: Georgia, 'Times New Roman', serif;
+
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+
+    font-weight: 500;
+
+    letter-spacing: -0.03em;
+}
+
+.tituloLinha p {
+    margin: 5px 0 0;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.82rem;
+
+    line-height: 1.5;
+}
+
+.tituloLinha strong {
+    color: var(--tf-text);
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   AÇÕES
+===================================================== */
+
+.acoesAgenda {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+}
+
+.botaoUrgencia {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 42px;
+
+    padding: 0 16px;
+
+    border:
+        1px solid
+        #e2b2b2;
+
+    border-radius:
+        10px;
+
+    background:
+        #fff7f7;
+
+    color:
+        #b74747;
+
+    font-family:
+        inherit;
+
+    font-size:
+        0.76rem;
+
+    font-weight:
+        750;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.botaoUrgencia:hover {
+    background:
+        #fae5e5;
+
+    border-color:
+        #d68b8b;
+
+    color:
+        #a83f3f;
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 5px 13px
+        rgba(214, 92, 92, 0.12);
+}
+
+.botaoUrgencia svg {
+    font-size: 16px;
+}
+
+
+
+.botaoInfo {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--tf-border);
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: var(--tf-primary-dark);
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.botaoInfo:hover {
+    background: var(--tf-primary-light);
+
+    border-color: #bdd5d0;
+}
+
+
+/* =====================================================
+   INFORMAÇÕES
+===================================================== */
+
+.infoAgenda {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    width: 100%;
+
+    margin-bottom: 18px;
+
+    border: 1px solid var(--tf-border);
+    border-radius: 13px;
+
+    background: #ffffff;
+
+    box-shadow: var(--tf-shadow);
+}
+
+.infoAgendaItem {
+    display: flex;
+
+    align-items: center;
+
+    min-height: 70px;
+
+    padding: 12px 18px;
+
+    gap: 12px;
+}
+
+.infoAgendaItem + .infoAgendaItem {
+    border-left: 1px solid var(--tf-border);
+}
+
+.infoAgendaItem > svg {
+    flex-shrink: 0;
+
+    color: var(--tf-primary);
+
+    font-size: 18px;
+}
+
+.infoAgendaItem strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--tf-text);
+
+    font-size: 0.75rem;
+}
+
+.infoAgendaItem span {
+    display: block;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.69rem;
+
+    line-height: 1.45;
+}
+
+
+/* =====================================================
+   LEGENDA
+===================================================== */
+
+.legenda {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    width: 100%;
+
+    margin-bottom: 12px;
+
+    gap: 17px;
+}
+
+.legendaTitulo {
+    color: var(--tf-text);
+
+    font-size: 0.72rem;
+    font-weight: 750;
+}
+
+.legendaItem {
+    display: inline-flex;
+
+    align-items: center;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.7rem;
+}
+
+.indicativo {
+    display: inline-block;
+
+    width: 11px;
+    height: 11px;
+
+    margin-right: 6px;
+
+    border-radius: 3px;
+}
+
+.livre {
+    background: #e6f3f0;
+    border: 1px dashed #62aaa0;
+}
+
+.meu {
+    background: #2f8f83;
+    border: 1px solid #24756b;
+}
+
+.pen {
+    background: #e39a3b;
+    border: 1px solid #c77d20;
+}
+
+.urgencia {
+    background: #d65c5c;
+    border: 1px solid #b74747;
+}
+
+.bloq {
+    background: #e4e8e7;
+    border: 1px solid #aeb9b6;
+}
+
+/* =====================================================
+   CALENDÁRIO
+===================================================== */
+
+.calendarioWrapper {
+    width: 100%;
+
+    height: calc(100vh - 290px);
+    min-height: 520px;
+
+    padding: 18px;
+
+    border: 1px solid var(--tf-border);
+    border-radius: 16px;
+
+    background: var(--tf-card);
+
+    box-shadow: var(--tf-shadow);
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   REACT BIG CALENDAR
+===================================================== */
+
+.calendarioWrapper :global(.rbc-calendar) {
+    color: var(--tf-text);
+
+    font-family: inherit;
+}
+
+
+/* Toolbar */
+
+.calendarioWrapper :global(.rbc-toolbar) {
+    margin-bottom: 18px;
+
+    gap: 10px;
+}
+
+.calendarioWrapper :global(.rbc-toolbar-label) {
+    color: var(--tf-text);
+
+    font-size: 0.9rem;
+    font-weight: 750;
+}
+
+.calendarioWrapper :global(.rbc-toolbar button) {
+    min-height: 34px;
+
+    padding: 6px 11px;
+
+    border: 1px solid var(--tf-border);
+
+    background: #ffffff;
+
+    color: var(--tf-text-soft);
+
+    font-family: inherit;
+
+    font-size: 0.7rem;
+    font-weight: 650;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.calendarioWrapper :global(.rbc-toolbar button:hover) {
+    background: var(--tf-primary-light);
+
+    border-color: #bdd5d0;
+
+    color: var(--tf-primary-dark);
+}
+
+.calendarioWrapper :global(.rbc-toolbar button.rbc-active) {
+    background: var(--tf-primary);
+
+    border-color: var(--tf-primary);
+
+    color: #ffffff;
+
+    box-shadow: none;
+}
+
+
+/* Cabeçalho dos dias */
+
+.calendarioWrapper :global(.rbc-header) {
+    padding: 9px 5px;
+
+    border-bottom: 1px solid var(--tf-border);
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.68rem;
+    font-weight: 700;
+}
+
+.calendarioWrapper :global(.rbc-header + .rbc-header) {
+    border-left: 1px solid var(--tf-border);
+}
+
+
+/* Células */
+
+.calendarioWrapper :global(.rbc-time-view) {
+    border: 1px solid var(--tf-border);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.calendarioWrapper :global(.rbc-time-header) {
+    border-bottom: 1px solid var(--tf-border);
+}
+
+.calendarioWrapper :global(.rbc-time-content) {
+    border-top: none;
+}
+
+.calendarioWrapper :global(.rbc-timeslot-group) {
+    min-height: 52px;
+
+    border-bottom: 1px solid #edf1ef;
+}
+
+.calendarioWrapper :global(.rbc-time-slot) {
+    color: #899592;
+
+    font-size: 0.64rem;
+}
+
+.calendarioWrapper :global(.rbc-time-gutter) {
+    background: #fafcfb;
+}
+
+.calendarioWrapper :global(.rbc-day-slot .rbc-time-slot) {
+    border-top: 1px solid #f1f4f3;
+}
+
+.calendarioWrapper :global(.rbc-day-slot) {
+    border-left: 1px solid var(--tf-border);
+}
+
+
+/* Dia atual */
+
+.calendarioWrapper :global(.rbc-today) {
+    background: rgba(232, 243, 239, 0.38);
+}
+
+
+/* Evento */
+
+.calendarioWrapper :global(.rbc-event) {
+    border: none;
+
+    padding: 4px 7px;
+
+    border-radius: 7px;
+
+    box-shadow:
+        0 2px 5px rgba(36, 51, 49, 0.05);
+}
+
+.calendarioWrapper :global(.rbc-event:focus) {
+    outline: none !important;
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loadingAgenda {
+    position: fixed;
+
+    right: 24px;
+    bottom: 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 10px 15px;
+
+    border: 1px solid var(--tf-border);
+    border-radius: 999px;
+
+    background: #ffffff;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.72rem;
+    font-weight: 650;
+
+    box-shadow:
+        0 8px 22px rgba(36, 51, 49, 0.1);
+
+    z-index: 1000;
+}
+
+.spinner {
+    width: 13px;
+    height: 13px;
+
+    border: 2px solid #dce8e5;
+    border-top-color: var(--tf-primary);
+
+    border-radius: 50%;
+
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media (max-width: 1024px) {
+
+    .conteudoAgenda {
+        padding: 82px 24px 30px;
+    }
+
+    .calendarioWrapper {
+        height: calc(100vh - 310px);
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .conteudoAgenda {
+        padding: 78px 18px 28px;
+    }
+
+    .topoAgenda {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .acoesAgenda {
+        width: 100%;
+    }
+
+    .botaoUrgencia {
+        flex: 1;
+    }
+
+    .infoAgenda {
+        grid-template-columns: 1fr;
+    }
+
+    .infoAgendaItem + .infoAgendaItem {
+        border-top: 1px solid var(--tf-border);
+
+        border-left: none;
+    }
+
+    .calendarioWrapper {
+        height: 650px;
+
+        min-height: 600px;
+
+        padding: 10px;
+
+        border-radius: 13px;
+    }
+
+    .calendarioWrapper :global(.rbc-toolbar) {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .calendarioWrapper :global(.rbc-toolbar-label) {
+        width: 100%;
+
+        order: -1;
+
+        margin-bottom: 5px;
+
+        text-align: center;
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .conteudoAgenda {
+        padding: 74px 14px 24px;
+    }
+
+    .tituloLinha {
+        align-items: flex-start;
+    }
+
+    .iconeTitulo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .tituloLinha h1 {
+        font-size: 1.65rem;
+    }
+
+    .tituloLinha p {
+        font-size: 0.75rem;
+    }
+
+    .botaoUrgencia span {
+        font-size: 0.7rem;
+    }
+
+    .legenda {
+        gap: 10px 13px;
+    }
+
+    .legendaItem {
+        font-size: 0.65rem;
+    }
+
+    .calendarioWrapper {
+        height: 620px;
+
+        padding: 7px;
+    }
+
+    .calendarioWrapper :global(.rbc-toolbar button) {
+        padding: 5px 8px;
+
+        font-size: 0.64rem;
+    }
+
+}

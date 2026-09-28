@@ -1,0 +1,1 @@
+// src/application/use-cases/profissional/ListarHistoricoValidacaoUseCase.spec.ts

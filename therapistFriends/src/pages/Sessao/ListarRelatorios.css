@@ -1,0 +1,918 @@
+/* =========================================================
+   LISTA DE RELATÓRIOS — THERAPISTFRIEND
+   ========================================================= */
+
+
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
+
+:root {
+  --tf-bg: #faf9f5;
+  --tf-card: #ffffff;
+
+  --tf-primary: #4f7f78;
+  --tf-primary-dark: #315d57;
+  --tf-primary-light: #e8f3ef;
+
+  --tf-blue-light: #dcecf2;
+
+  --tf-text: #243331;
+  --tf-text-soft: #52615e;
+  --tf-text-muted: #7a8885;
+
+  --tf-border: #e1e8e5;
+  --tf-border-soft: #edf1ef;
+
+  --tf-danger: #a65d58;
+  --tf-danger-dark: #8f4d49;
+
+  --tf-shadow-sm:
+    0 4px 14px rgba(36, 51, 49, 0.06);
+
+  --tf-shadow-md:
+    0 8px 24px rgba(36, 51, 49, 0.08);
+}
+
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.container {
+  display: flex;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+
+  background: var(--tf-bg);
+
+  overflow: hidden;
+}
+
+.content-wrapper {
+  flex: 1 1 auto;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 34px 38px 28px;
+
+  background:
+    radial-gradient(
+      circle at 8% 5%,
+      rgba(220, 236, 242, 0.28),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 92% 92%,
+      rgba(232, 243, 239, 0.45),
+      transparent 30%
+    ),
+    var(--tf-bg);
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.content-body {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header-section {
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+
+  margin-bottom: 22px;
+}
+
+.header-section h1,
+.title {
+  margin: 0;
+
+  color: var(--tf-text);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 2rem;
+  font-weight: 600;
+
+  line-height: 1.2;
+}
+
+.header-section h1 {
+  position: relative;
+
+  padding-left: 16px;
+}
+
+.header-section h1::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 4px;
+
+  width: 4px;
+  height: calc(100% - 8px);
+
+  border-radius: 999px;
+
+  background: var(--tf-primary);
+}
+
+
+/* =========================================================
+   FILTROS
+   ========================================================= */
+
+.filters-row {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   BUSCA
+   ========================================================= */
+
+.search-container {
+  flex: 1 1 280px;
+
+  min-width: 240px;
+  max-width: 440px;
+
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 0 14px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border: 1px solid var(--tf-border);
+
+  border-radius: 12px;
+
+  color: var(--tf-text-muted);
+
+  box-shadow: var(--tf-shadow-sm);
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.search-container:focus-within {
+  background: #ffffff;
+
+  border-color: rgba(79, 127, 120, 0.5);
+
+  box-shadow:
+    0 0 0 3px rgba(79, 127, 120, 0.09),
+    var(--tf-shadow-sm);
+}
+
+.search-container svg {
+  flex-shrink: 0;
+
+  color: var(--tf-primary);
+
+  stroke-width: 2;
+}
+
+.search-container input {
+  width: 100%;
+  min-width: 0;
+
+  padding: 0;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: var(--tf-text);
+
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.search-container input::placeholder {
+  color: #8b9895;
+}
+
+
+/* =========================================================
+   SELECTS
+   ========================================================= */
+
+.filters-row select {
+  min-width: 160px;
+
+  height: 46px;
+
+  padding: 0 34px 0 13px;
+
+  border: 1px solid var(--tf-border);
+
+  border-radius: 12px;
+
+  outline: none;
+
+  background-color: #ffffff;
+
+  color: var(--tf-text-soft);
+
+  font-family: inherit;
+
+  font-size: 0.87rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: var(--tf-shadow-sm);
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.filters-row select:hover {
+  border-color: rgba(79, 127, 120, 0.35);
+}
+
+.filters-row select:focus {
+  border-color: rgba(79, 127, 120, 0.5);
+
+  box-shadow:
+    0 0 0 3px rgba(79, 127, 120, 0.09);
+}
+
+
+/* =========================================================
+   TABELA
+   ========================================================= */
+
+.table-wrapper {
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.98);
+
+  border: 1px solid var(--tf-border);
+
+  border-radius: 18px;
+
+  box-shadow: var(--tf-shadow-md);
+
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.reports-table {
+  width: 100%;
+
+  min-width: 720px;
+
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+
+/* =========================================================
+   CABEÇALHO DA TABELA
+   ========================================================= */
+
+.reports-table thead {
+  background: #f7faf8;
+}
+
+.reports-table th {
+  height: 54px;
+
+  padding: 0 18px;
+
+  text-align: left;
+
+  color: var(--tf-text-muted);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  border-bottom: 1px solid var(--tf-border);
+}
+
+
+/* =========================================================
+   CÉLULAS
+   ========================================================= */
+
+.reports-table td {
+  padding: 16px 18px;
+
+  color: var(--tf-text);
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  border-bottom: 1px solid var(--tf-border-soft);
+
+  vertical-align: middle;
+}
+
+.reports-table tbody tr {
+  transition:
+    background-color 0.16s ease;
+}
+
+.reports-table tbody tr:hover {
+  background: #f8fbfa;
+}
+
+.reports-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   PACIENTE
+   ========================================================= */
+
+.reports-table td:first-child {
+  color: var(--tf-text);
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   DATA
+   ========================================================= */
+
+.reports-table td:nth-child(2) {
+  color: var(--tf-text-soft);
+
+  font-size: 0.84rem;
+}
+
+
+/* =========================================================
+   CONFIANÇA
+   ========================================================= */
+
+.reports-table td:nth-child(4) {
+  color: var(--tf-primary-dark);
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   BADGES DE EMOÇÃO
+   ========================================================= */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 88px;
+
+  padding: 6px 11px;
+
+  border-radius: 999px;
+
+  font-size: 0.73rem;
+  font-weight: 750;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  border: 1px solid transparent;
+}
+
+
+/* Felicidade */
+
+.badge-felicidade {
+  background: #e8f3ef;
+  color: #315d57;
+
+  border-color: rgba(79, 127, 120, 0.14);
+}
+
+
+/* Tristeza */
+
+.badge-tristeza {
+  background: var(--tf-blue-light);
+  color: #355b68;
+
+  border-color: rgba(53, 91, 104, 0.1);
+}
+
+
+/* Raiva */
+
+.badge-raiva {
+  background: rgba(166, 93, 88, 0.1);
+  color: var(--tf-danger-dark);
+
+  border-color: rgba(166, 93, 88, 0.13);
+}
+
+
+/* Neutro */
+
+.badge-neutro {
+  background: #edf1ef;
+  color: #52615e;
+
+  border-color: rgba(82, 97, 94, 0.1);
+}
+
+
+/* =========================================================
+   BOTÃO "VER"
+   ========================================================= */
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  min-height: 36px;
+
+  padding: 0 12px;
+
+  border: 1px solid rgba(79, 127, 120, 0.18);
+
+  border-radius: 9px;
+
+  background: var(--tf-primary-light);
+
+  color: var(--tf-primary-dark);
+
+  font-family: inherit;
+
+  font-size: 0.78rem;
+  font-weight: 750;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.action-btn svg {
+  flex-shrink: 0;
+
+  stroke-width: 2.2;
+}
+
+.action-btn:hover {
+  background: var(--tf-primary);
+
+  border-color: var(--tf-primary);
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 5px 14px rgba(79, 127, 120, 0.18);
+}
+
+.action-btn:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   ESTADOS DA TABELA
+   ========================================================= */
+
+.reports-table td[colspan] {
+  height: 180px;
+
+  padding: 30px;
+
+  color: var(--tf-text-muted);
+
+  font-size: 0.92rem;
+  font-weight: 600;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   PAGINAÇÃO
+   ========================================================= */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  margin-top: 20px;
+
+  padding: 4px 0;
+}
+
+.pagination button {
+  min-width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 10px;
+
+  border: 1px solid var(--tf-border);
+
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  color: var(--tf-primary-dark);
+
+  font-family: inherit;
+
+  font-size: 0.8rem;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.pagination button:not(:disabled):hover {
+  background: var(--tf-primary-light);
+
+  border-color: rgba(79, 127, 120, 0.3);
+
+  transform: translateY(-1px);
+}
+
+.pagination button.active {
+  background: var(--tf-primary-dark);
+
+  border-color: var(--tf-primary-dark);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 5px 14px rgba(49, 93, 87, 0.16);
+}
+
+.pagination button:disabled {
+  background: #f5f7f6;
+
+  color: #aab5b2;
+
+  border-color: var(--tf-border-soft);
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   RESPONSIVO — TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .content-wrapper {
+    padding: 28px 20px 24px;
+  }
+
+  .header-section {
+    gap: 16px;
+  }
+
+  .header-section h1,
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .filters-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 9px;
+  }
+
+  .search-container {
+    grid-column: 1 / -1;
+
+    width: 100%;
+    max-width: none;
+
+    min-width: 0;
+  }
+
+  .filters-row select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .table-wrapper {
+    border-radius: 15px;
+  }
+
+  /*
+     Mantemos a tabela com largura mínima.
+     Assim ela recebe scroll horizontal em telas pequenas
+     em vez de esmagar o conteúdo.
+  */
+
+  .reports-table {
+    min-width: 680px;
+  }
+
+  .reports-table th {
+    height: 48px;
+
+    padding: 0 13px;
+
+    font-size: 0.68rem;
+  }
+
+  .reports-table td {
+    padding: 13px;
+
+    font-size: 0.83rem;
+  }
+
+  .badge {
+    min-width: 78px;
+
+    padding: 5px 9px;
+
+    font-size: 0.68rem;
+  }
+
+  .action-btn {
+    min-height: 34px;
+
+    padding: 0 10px;
+
+    font-size: 0.74rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .content-wrapper {
+    padding: 78px 12px 20px;
+  }
+
+  .header-section {
+    margin-bottom: 16px;
+  }
+
+  .header-section h1,
+  .title {
+    font-size: 1.55rem;
+
+    text-align: left;
+  }
+
+  .header-section h1 {
+    padding-left: 13px;
+  }
+
+  .header-section h1::before {
+    width: 3px;
+  }
+
+  .filters-row {
+    grid-template-columns: 1fr;
+  }
+
+  .search-container {
+    height: 44px;
+  }
+
+  .filters-row select {
+    height: 44px;
+  }
+
+  .table-wrapper {
+    width: calc(100vw - 24px);
+
+    border-radius: 13px;
+  }
+
+  .pagination {
+    gap: 5px;
+
+    margin-top: 15px;
+
+    padding-bottom: 5px;
+  }
+
+  .pagination button {
+    min-width: 35px;
+    height: 35px;
+
+    padding: 0 8px;
+  }
+}
+
+
+/* =========================================================
+   LANDSCAPE MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) and (orientation: landscape) {
+
+  .content-wrapper {
+    padding: 72px 16px 18px;
+  }
+
+  .header-section {
+    gap: 10px;
+
+    margin-bottom: 12px;
+  }
+
+  .header-section h1,
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .filters-row {
+    display: flex;
+
+    flex-direction: row;
+
+    flex-wrap: nowrap;
+
+    gap: 8px;
+  }
+
+  .search-container {
+    flex: 1 1 auto;
+
+    min-width: 180px;
+
+    height: 40px;
+  }
+
+  .filters-row select {
+    flex: 0 0 auto;
+
+    width: auto;
+    min-width: 145px;
+
+    height: 40px;
+  }
+
+  .table-wrapper {
+    max-height: calc(100dvh - 190px);
+
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+
+  .reports-table {
+    min-width: 680px;
+  }
+
+  .reports-table th {
+    height: 42px;
+
+    padding: 0 10px;
+
+    font-size: 0.63rem;
+  }
+
+  .reports-table td {
+    padding: 9px 10px;
+
+    font-size: 0.76rem;
+  }
+
+  .badge {
+    padding: 5px 8px;
+
+    font-size: 0.64rem;
+  }
+
+  .action-btn {
+    min-height: 31px;
+
+    padding: 0 9px;
+
+    font-size: 0.68rem;
+  }
+
+  .pagination {
+    margin-top: 10px;
+  }
+
+  .pagination button {
+    min-width: 32px;
+    height: 32px;
+  }
+}
+
+
+/* =========================================================
+   TELAS MUITO PEQUENAS
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+  .content-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .header-section h1,
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .table-wrapper {
+    width: calc(100vw - 20px);
+  }
+
+  .pagination button {
+    min-width: 33px;
+    height: 33px;
+  }
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .search-container,
+  .filters-row select,
+  .reports-table tbody tr,
+  .action-btn,
+  .pagination button {
+    transition: none;
+  }
+}

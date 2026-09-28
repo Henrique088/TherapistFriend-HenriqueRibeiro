@@ -1,0 +1,672 @@
+:global(:root) {
+    --tf-bg: #faf9f5;
+    --tf-card: #ffffff;
+
+    --tf-primary: #4f7f78;
+    --tf-primary-dark: #315d57;
+    --tf-primary-light: #e8f3ef;
+
+    --tf-text: #243331;
+    --tf-text-soft: #6c7b78;
+    --tf-border: #e1e8e5;
+
+    /* Cores dos eventos da AgendaPaciente */
+    --agenda-disponivel: #4f8fb3;
+    --agenda-disponivel-dark: #3b7697;
+
+    --agenda-pendente: #e39a3b;
+    --agenda-pendente-dark: #c77d20;
+
+    --agenda-confirmado: #2f8f83;
+    --agenda-confirmado-dark: #24756b;
+
+    --agenda-urgencia: #d65c5c;
+    --agenda-urgencia-dark: #b74747;
+
+    --tf-warning: #a87535;
+    --tf-warning-light: #f8f0e3;
+
+    --tf-shadow: 0 20px 55px rgba(36, 51, 49, 0.16);
+}
+
+
+/* =====================================================
+   OVERLAY
+===================================================== */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1010;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(36, 51, 49, 0.46);
+
+    backdrop-filter: blur(5px);
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal {
+    position: relative;
+
+    width: min(100%, 620px);
+    max-height: calc(100vh - 40px);
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 0;
+
+    background: var(--tf-card);
+
+    border: 1px solid var(--tf-border);
+    border-radius: 20px;
+
+    outline: none;
+
+    box-shadow: var(--tf-shadow);
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 14px;
+
+    padding: 26px 28px 22px;
+
+    border-bottom: 1px solid var(--tf-border);
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #fbfcfa 100%
+        );
+}
+
+.headerIcon {
+    flex: 0 0 44px;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: var(--tf-primary);
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    box-shadow:
+        0 4px 10px rgba(79, 127, 120, 0.18);
+}
+
+.headerText {
+    min-width: 0;
+}
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--tf-primary);
+
+    font-size: 0.66rem;
+    font-weight: 800;
+
+    letter-spacing: 0.13em;
+}
+
+.headerText h2 {
+    margin: 0;
+
+    color: var(--tf-text);
+
+    font-family: Georgia, 'Times New Roman', serif;
+
+    font-size: 1.5rem;
+    font-weight: 500;
+
+    line-height: 1.2;
+}
+
+.headerText p {
+    margin: 7px 0 0;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.84rem;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   FECHAR
+===================================================== */
+
+.closeButton {
+    flex: 0 0 auto;
+
+    width: 35px;
+    height: 35px;
+
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--tf-border);
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: var(--tf-text-soft);
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.closeButton:hover {
+    background: var(--tf-bg);
+
+    border-color: #cbd8d4;
+
+    color: var(--tf-text);
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content {
+    padding: 23px 28px;
+
+    overflow-y: auto;
+}
+
+.section {
+    padding-bottom: 21px;
+
+    border-bottom: 1px solid var(--tf-border);
+}
+
+.section + .section {
+    padding-top: 21px;
+}
+
+.sectionTitle {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 11px;
+}
+
+.sectionIcon {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: var(--tf-primary-light);
+
+    color: var(--tf-primary-dark);
+
+    font-size: 12px;
+}
+
+.sectionTitle h3 {
+    margin: 0;
+
+    color: var(--tf-text);
+
+    font-size: 0.94rem;
+    font-weight: 750;
+}
+
+.section p {
+    margin: 0;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.84rem;
+
+    line-height: 1.6;
+}
+
+.section strong {
+    color: var(--tf-text);
+}
+
+
+/* =====================================================
+   DICA MOBILE
+===================================================== */
+
+.mobileHint {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 9px;
+
+    margin-top: 13px;
+    padding: 11px 13px;
+
+    border: 1px solid #c9dfe8;
+    border-radius: 10px;
+
+    background: #eef6f9;
+
+    color: #3b687d;
+
+    font-size: 0.77rem;
+
+    line-height: 1.5;
+}
+
+.mobileHint svg {
+    flex: 0 0 auto;
+
+    margin-top: 2px;
+}
+
+
+/* =====================================================
+   LEGENDA
+===================================================== */
+
+.legenda {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.legendaItem {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    min-height: 48px;
+
+    padding: 8px 11px;
+
+    border: 1px solid var(--tf-border);
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.legendaItem:hover {
+    background: #fcfdfc;
+
+    border-color: #cfdad7;
+}
+
+.indicativo {
+    flex: 0 0 auto;
+
+    width: 13px;
+    height: 13px;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 1px 4px rgba(36, 51, 49, 0.14);
+}
+
+.legendaItem div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+
+    min-width: 0;
+}
+
+.legendaItem strong {
+    color: var(--tf-text);
+
+    font-size: 0.79rem;
+    font-weight: 750;
+}
+
+.legendaItem span:not(.indicativo) {
+    color: var(--tf-text-soft);
+
+    font-size: 0.73rem;
+
+    line-height: 1.4;
+}
+
+
+/* =====================================================
+   CORES DOS EVENTOS
+   Mesmas cores utilizadas na AgendaPaciente
+===================================================== */
+
+.disponivel {
+    background: #e6f3f0;
+    border: 1px dashed #62aaa0;
+}
+
+.aguardando {
+    background: #e39a3b;
+    border: 1px solid #c77d20;
+}
+
+.confirmado {
+    background: #2f8f83;
+    border: 1px solid #24756b;
+}
+
+.vip {
+    background: #d65c5c;
+    border: 1px solid #b74747;
+}
+
+.indisponivel {
+    background: #e4e8e7;
+    border: 1px solid #aeb9b6;
+}
+
+/* =====================================================
+   CANCELAMENTO
+===================================================== */
+
+.cancelamento {
+    margin-top: 21px;
+
+    padding: 16px;
+
+    border: 1px solid #ead7d5;
+    border-radius: 13px;
+
+    background: #fff9f8;
+}
+
+.cancelamentoHeader {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    margin-bottom: 11px;
+}
+
+.alertIcon {
+    flex: 0 0 auto;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #fae5e5;
+
+    color: var(--agenda-urgencia-dark);
+
+    font-size: 14px;
+}
+
+.cancelamentoHeader .eyebrow {
+    margin-bottom: 2px;
+
+    color: var(--agenda-urgencia-dark);
+}
+
+.cancelamentoHeader h3 {
+    margin: 0;
+
+    color: var(--tf-text);
+
+    font-size: 0.93rem;
+}
+
+.cancelamento > p {
+    margin: 0 0 11px;
+
+    color: var(--tf-text-soft);
+
+    font-size: 0.81rem;
+
+    line-height: 1.55;
+}
+
+.regra {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+
+    padding: 10px 12px;
+
+    border-left: 3px solid var(--agenda-pendente);
+
+    background: #fff7ed;
+}
+
+.regra strong {
+    color: #8a5a1e;
+
+    font-size: 0.78rem;
+
+    line-height: 1.4;
+}
+
+.regra span {
+    color: var(--tf-text-soft);
+
+    font-size: 0.73rem;
+
+    line-height: 1.4;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+
+    padding: 15px 28px;
+
+    border-top: 1px solid var(--tf-border);
+
+    background: #fcfcfa;
+}
+
+.fecharButton {
+    min-width: 108px;
+    min-height: 40px;
+
+    padding: 0 18px;
+
+    border: 1px solid var(--tf-primary-dark);
+    border-radius: 10px;
+
+    background: var(--tf-primary);
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 0.81rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.fecharButton:hover {
+    background: var(--tf-primary-dark);
+
+    border-color: var(--tf-primary-dark);
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 13px rgba(49, 93, 87, 0.16);
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .overlay {
+        padding: 12px;
+    }
+
+    .modal {
+        max-height: calc(100vh - 24px);
+
+        border-radius: 18px;
+    }
+
+    .header {
+        padding: 21px 20px 18px;
+    }
+
+    .headerIcon {
+        width: 40px;
+        height: 40px;
+
+        flex-basis: 40px;
+    }
+
+    .headerText h2 {
+        font-size: 1.34rem;
+    }
+
+    .headerText p {
+        font-size: 0.8rem;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .footer {
+        padding: 14px 20px;
+    }
+
+    .fecharButton {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 420px) {
+
+    .headerIcon {
+        display: none;
+    }
+
+    .header {
+        gap: 10px;
+    }
+
+    .headerText h2 {
+        font-size: 1.24rem;
+    }
+
+    .legendaItem {
+        padding: 8px 9px;
+    }
+
+    .cancelamento {
+        padding: 14px;
+    }
+}
+
+
+/* =====================================================
+   LANDSCAPE PEQUENO
+===================================================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .modal {
+        max-height: calc(100vh - 20px);
+    }
+
+    .header {
+        padding: 15px 22px;
+    }
+
+    .content {
+        padding: 15px 22px;
+    }
+
+    .section {
+        padding-bottom: 14px;
+    }
+
+    .section + .section {
+        padding-top: 14px;
+    }
+
+    .cancelamento {
+        margin-top: 14px;
+    }
+
+    .footer {
+        padding: 11px 22px;
+    }
+}

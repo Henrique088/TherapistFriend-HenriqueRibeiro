@@ -1,0 +1,115 @@
+services:
+  # ----------------------------------------
+  # 1. SERVIÇO REDIS 
+  # ----------------------------------------
+  redis:
+    image: redis:6-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+# ----------------------------------------
+  # 2. SERVIÇO BACKEND / API (NODE EXPRESS)
+  # ----------------------------------------
+  api:
+    build:
+      context: ./backend_Express
+      dockerfile: Dockerfile.backend
+    container_name: backend-principal
+    image: theraphist-backend:latest
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+    environment:
+      NODE_ENV: development
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    command: npm start
+    volumes:
+      - ./backend_Express:/usr/src/app
+
+  # ----------------------------------------
+  # 3. SERVIÇO WORKER (PROCESSADOR BULLMQ)
+  # ----------------------------------------
+  worker:
+    # Removeu-se a chave 'build' daqui para evitar Build Concurrency Error
+    container_name: worker
+    image: theraphist-backend:latest
+    depends_on:
+      - redis
+      - api # Garante que a API construa a imagem antes do worker subir
+    environment:
+      NODE_ENV: development
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    command: node dist/src/worker.js
+    restart: always
+    volumes:
+      - ./backend_Express:/usr/src/app
+
+  # ----------------------------------------
+  # 4. SERVIÇO DE ANÁLISE DE EMOÇÕES VIA GRPC
+  # ----------------------------------------
+  emotion-ai:
+    build:
+      context: ./emotion_ai
+    container_name: emotion-ai-service
+    image: emotion-ai:latest
+    ports:
+      - "50051:50051"
+    volumes:
+      - ./emotion_ai:/usr/src/app
+
+  # ----------------------------------------
+  # 5. SERVIÇO DE ANÁLISE DE RELATOS VIA IA
+  # ----------------------------------------
+  ia-relatos:
+    build:
+      context: ./ia_relatos
+    container_name: ia-relatos-service
+    image: ia-relatos:latest
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./ia_relatos:/usr/src/app
+
+  # ----------------------------------------
+  # 6. SERVIÇO FRONT-END 
+  # ----------------------------------------
+  frontend:
+    build:
+      context: ./therapistFriends
+      dockerfile: Dockerfile.frontend
+    container_name: frontend
+    image: theraphist-frontend:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./therapistFriends:/usr/src/app
+      - frontend_node_modules:/usr/src/app/node_modules
+    stdin_open: true
+    tty: true
+
+  # ----------------------------------------
+  # 7. SERVIDOR COTURN (STUN/TURN)
+  # ----------------------------------------
+  coturn:
+    image: coturn/coturn:latest
+    container_name: coturn
+    restart: unless-stopped
+    volumes:
+      - ./coturn/turnserver.conf:/etc/coturn/turnserver.conf
+    command: -c /etc/coturn/turnserver.conf
+    ports:
+      - "3478:3478/tcp"
+      - "3478:3478/udp"
+      - "49160-49200:49160-49200/udp"
+
+# ----------------------------------------
+# DECLARAÇÃO DE VOLUMES PERSISTENTES NOMEADOS
+# ----------------------------------------
+volumes:
+  frontend_node_modules:
